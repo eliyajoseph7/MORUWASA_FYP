@@ -52,12 +52,12 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="{{url ('home') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</a>
+                        <a href="{{url ('homee') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</a>
                         
                     </li>
                     
                     <li>
-                        <a href="{{ url('/customer') }}"><i class="fa fa-users"></i> <span class="nav-label">Customers</span></a>
+                        <a href="{{ url('/customers') }}"><i class="fa fa-users"></i> <span class="nav-label">Customers</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Regions</span><span class="fa arrow"></span></a>
