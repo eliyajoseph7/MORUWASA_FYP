@@ -55,9 +55,7 @@
                         <a href="{{url ('home') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</a>
                         
                     </li>
-                    <li>
-                        <a href="{{ url('/staff') }}"><i class="fa fa-user"></i> <span class="nav-label">Staffs</span></a>
-                    </li>
+                    
                     <li>
                         <a href="{{ url('/customer') }}"><i class="fa fa-users"></i> <span class="nav-label">Customers</span></a>
                     </li>
