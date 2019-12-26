@@ -10,23 +10,25 @@
     <table class="table table-borderless mydatatable responsive" style="width:100%">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Name</th>
                 <th>Street</th>
                 <th>Metre no.</th>
                 <th>Gender</th>
-                <th>Start date</th>
-                <th>status</th>
+                <th>Phone</th>
+                <th>Status</th>
                 <th>Trend</th>
             </tr>
         </thead>
         <tbody>
             </tr>
             <tr>
+                <td>1</td>
                 <td>Meneja</td>
                 <td>Msanvu</td>
                 <td>1154</td>
                 <td>M</td>
-                <td>23/4/2015</td>
+                <td>0xxx-xxxxxx</td>
                 
                 <td class="yes"><span title="paid" data-toggle="tooltip"><i class="fa fa-check-circle fa-2x"></span></span<i></td>
                 <td><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
@@ -34,12 +36,13 @@
             </tbody>
         <tfoot>
             <tr>
-            <th>Name</th>
+                <th>#</th>
+                <th>Name</th>
                 <th>Street</th>
                 <th>Metre no.</th>
                 <th>Gender</th>
-                <th>Start date</th>
-                <th>status</th>
+                <th>Phone</th>
+                <th>Status</th>
                 <th>Trend</th>
             </tr>
         </tfoot>
