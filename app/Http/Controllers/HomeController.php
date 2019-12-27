@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Charts;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $chart = Charts::create('line', 'highcharts')
+                        ->title('My nice chart')
+                        ->labels(['First', 'Second', 'Third'])
+                        ->values([5,10,20])
+                        ->dimensions(0,400);
+    return view('billshome',['chart' => $chart]);
     }
 }
