@@ -30,7 +30,7 @@
 
     <link href="{{ url('css/animate.css') }}" rel="stylesheet">
     <link href="{{ url('css/style.css')}} " rel="stylesheet">
-    {45!! Charts::assets() !!}
+    {!! Charts::assets() !!}
 
     
 
@@ -52,7 +52,7 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="{{url ('homee') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</a>
+                        <a href="{{url ('home') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</a>
                         
                     </li>
                     
