@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('gender');
             $table->string('phone');
             $table->string('status');
+            $table->string('control_no');
             $table->timestamps();
         });
     }
