@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Customer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +14,12 @@
 Route::get('/', function () {
     return view('auth/login');
 });
+// Route::get('/customer/{id}/payment', function ($id) {
+//     return Customer::find($id)->payments;
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/customers', 'CustomerController@index')->name('customers');
+
