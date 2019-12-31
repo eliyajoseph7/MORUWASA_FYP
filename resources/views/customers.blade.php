@@ -13,37 +13,56 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Street</th>
-                <th>Metre no.</th>
+                <th>Meter no.</th>
                 <th>Gender</th>
                 <th>Phone</th>
-                <th>Status</th>
                 <th>Trend</th>
+                <th>Status</th>
+                
             </tr>
         </thead>
         <tbody>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Meneja</td>
-                <td>Msanvu</td>
-                <td>1154</td>
-                <td>M</td>
-                <td>0xxx-xxxxxx</td>
+            <?php
+            $count = 0;
                 
-                <td class="yes"><span title="paid" data-toggle="tooltip"><i class="fa fa-check-circle fa-2x"></span></span<i></td>
+                ?>
+                    @if(count($customers) > 0 || count($pay) > 0)
+                        @foreach($customers -> all() as $customers) 
+                         
+                            <?php 
+                              $count += 1;
+                            ?>
+                
+            <tr>
+                <td>{{( $count )}}</td>
+                <td>{{( $customers -> name )}}</td>
+                <td>{{( $customers -> street )}}</td>
+                <td>{{( $customers -> meter_no )}}</td>
+                <td>{{( $customers -> gender )}}</td>
+                <td>{{( $customers -> phone )}}</td>
                 <td><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
-            </tr>
+               
+
+            @foreach($customers->payments as $customers)
+                <td>{{( $customers -> status )}}</td>
+            @endforeach              
+                <!-- <td class="yes"><span title="paid" data-toggle="tooltip"><i class="fa fa-check-circle fa-2x"></span></span<i></td> -->
+            </tr>    
+                  @endforeach
+            @endif()         
+                    
             </tbody>
         <tfoot>
             <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Street</th>
-                <th>Metre no.</th>
+                <th>Meter no.</th>
                 <th>Gender</th>
                 <th>Phone</th>
-                <th>Status</th>
                 <th>Trend</th>
+                <th>Status</th>
+                
             </tr>
         </tfoot>
     </table>
