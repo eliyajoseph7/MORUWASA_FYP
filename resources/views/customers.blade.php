@@ -16,8 +16,8 @@
                 <th>Meter no.</th>
                 <th>Gender</th>
                 <th>Phone</th>
-                <th>Trend</th>
                 <th>Status</th>
+                <th>Trend</th>
                 
             </tr>
         </thead>
@@ -40,12 +40,13 @@
                 <td>{{( $customers -> meter_no )}}</td>
                 <td>{{( $customers -> gender )}}</td>
                 <td>{{( $customers -> phone )}}</td>
-                <td><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
                
-
+            <!-- getting customer's payment status from payments table -->
             @foreach($customers->payments as $customers)
                 <td>{{( $customers -> status )}}</td>
-            @endforeach              
+            @endforeach                
+            <td><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
+              
                 <!-- <td class="yes"><span title="paid" data-toggle="tooltip"><i class="fa fa-check-circle fa-2x"></span></span<i></td> -->
             </tr>    
                   @endforeach
@@ -60,8 +61,8 @@
                 <th>Meter no.</th>
                 <th>Gender</th>
                 <th>Phone</th>
-                <th>Trend</th>
                 <th>Status</th>
+                <th>Trend</th>
                 
             </tr>
         </tfoot>
