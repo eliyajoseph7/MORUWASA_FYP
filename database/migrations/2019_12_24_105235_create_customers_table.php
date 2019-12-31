@@ -17,11 +17,8 @@ class CreateCustomersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('street');
-            $table->string('metre_no');
             $table->string('gender');
             $table->string('phone');
-            $table->string('status');
-            $table->string('control_no');
             $table->timestamps();
         });
     }
