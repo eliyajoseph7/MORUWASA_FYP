@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Customer;
-use App\Payment;
+
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
