@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>MORUWASA</title>
+    <title> MORUWASA BILLING</title>
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatable/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatable/dataTables.bootstrap4.min.css') }}">
     
