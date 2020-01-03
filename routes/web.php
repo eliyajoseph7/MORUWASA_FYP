@@ -20,6 +20,9 @@ Route::get('/', function () {
     
 // });
 
+// Route::get('/customer/{id}/meter', function($id){
+//     return Customer::find($id)->meter;
+// });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
