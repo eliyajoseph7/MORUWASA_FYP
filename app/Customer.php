@@ -14,7 +14,7 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'street', 'gender', 'phone', 'metre_no',
+        'name', 'street', 'gender', 'phone',
     ];
 
 
@@ -23,5 +23,10 @@ class Customer extends Model
 
         // return $this->hasOne('App\Payment');
         return $this->hasMany(Payment::class);
+    }
+
+    public function meter(){
+
+        return $this->hasMany(Meter::class);
     }
 }
