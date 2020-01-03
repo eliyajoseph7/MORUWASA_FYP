@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Charts;
+use App\Customer;
+use App\Payment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,11 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $customers = Customer::all();
+        $count = count($customers);
+
         $chart = Charts::create('line', 'highcharts')
                         ->title('My nice chart')
                         ->labels(['First', 'Second', 'Third'])
                         ->values([5,10,20])
                         ->dimensions(0,400);
-    return view('billshome',['chart' => $chart]);
+    return view('billshome',['chart' => $chart,'count' => $count]);
     }
+
 }
