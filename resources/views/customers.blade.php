@@ -26,7 +26,7 @@
             $count = 0;
                 
                 ?>
-                    @if(count($customers) > 0 || count($pay) > 0)
+                    @if(count($customers) > 0 )
                         @foreach($customers -> all() as $customers) 
                          
                             <?php 
@@ -37,7 +37,11 @@
                 <td>{{( $count )}}</td>
                 <td>{{( $customers -> name )}}</td>
                 <td>{{( $customers -> street )}}</td>
-                <td>{{( $customers -> meter_no )}}</td>
+
+                @foreach($customers->meter as $customer)
+                    <td>{{( $customer -> meter_no )}}</td>
+                @endforeach
+                
                 <td>{{( $customers -> gender )}}</td>
                 <td>{{( $customers -> phone )}}</td>
                
@@ -50,7 +54,8 @@
                 <!-- <td class="yes"><span title="paid" data-toggle="tooltip"><i class="fa fa-check-circle fa-2x"></span></span<i></td> -->
             </tr>    
                   @endforeach
-            @endif()         
+            @endif()  
+                   
                     
             </tbody>
         <tfoot>
@@ -65,6 +70,7 @@
                 <th>Trend</th>
                 
             </tr>
+            
         </tfoot>
     </table>
     
