@@ -7,15 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Meter extends Model
 {
     //
-    use Notifiable;
+    public function customer(){
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'customer_id', 'meter_no',
-    ];
+        return $this->belongsTo(Customer::class);
+    }
 
 }
