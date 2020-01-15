@@ -37,18 +37,24 @@
                 <td>{{( $count )}}</td>
                 <td>{{( $customers -> name )}}</td>
                 <td>{{( $customers -> street )}}</td>
-
-                @foreach($customers->meter as $customer)
-                    <td>{{( $customer -> meter_no )}}</td>
-                @endforeach
-                
+                @if(count($customers->meter) > 0 )
+                    @foreach($customers->meter as $customer)
+                        <td>{{( $customer -> meter_no )}}</td>
+                    @endforeach
+                @else
+                    <td>-</td>
+                @endif
                 <td>{{( $customers -> gender )}}</td>
                 <td>{{( $customers -> phone )}}</td>
                
             <!-- getting customer's payment status from payments table -->
-            @foreach($customers->payments as $customers)
-                <td>{{( $customers -> status )}}</td>
-            @endforeach                
+            @if(count($customers->payments) > 0 )
+                @foreach($customers->payments as $cust)
+                    <td>{{( $cust -> status )}}</td>
+                @endforeach
+            @else
+                <td>-</td>
+            @endif                        
             <td><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
               
                 <!-- <td class="yes"><span title="paid" data-toggle="tooltip"><i class="fa fa-check-circle fa-2x"></span></span<i></td> -->
