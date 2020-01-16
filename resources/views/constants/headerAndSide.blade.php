@@ -60,13 +60,11 @@
                         <a href="{{ url('/customers') }}"><i class="fa fa-users"></i> <span class="nav-label">Customers</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Regions</span><span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ url('/kinondoni') }}">Kinondoni</a></li>
-                            <li><a href="{{ url('/ilala') }}">Ilala</a></li>
-                            <li><a href="{{ url('/temeke') }}">Temeke</a></li>
-                            <li><a href="{{ url('/kibaha') }}">Kibaha</a></li>
-                            <li><a href="{{ url('/bagamoyo') }}">Bagamoyo</a></li>
+                            <li><a href="{{ url('/newMeter') }}">Register meter</a></li>
+                            <li><a href="{{ url('/addCustomer') }}">Add customer</a></li>
+                            
                             
                         </ul>
                     </li>
