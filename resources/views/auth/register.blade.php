@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +73,89 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</div> -->
+
+
+
+@include('constants.header')
+<div class="page login-page">
+        <div class="container d-flex align-items-center">
+            <div class="form-holder has-shadow">
+                <div class="row">
+                    <!-- Logo & Information Panel-->
+                    <div class="col-lg-6">
+                        <div class="row log">
+                            <div class="mx-auto">
+                                <img src="{{ url('img/logo.png') }}">
+                            </div>
+                            
+                        </div>
+                        <div class="info d-flex row mx-auto">
+                            <div class="content">
+                                <div class="logo text-center">
+                                    <h1>Dashboard</h1>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Form Panel    -->
+                    <div class="col-lg-6 bg-white">
+                        <div class="form d-flex align-items-center">
+                            <div class="content">
+                                <form method="POST" action="{{ route('register') }}">
+                                @csrf
+                                    <div class="form-group">
+                                        <input id="name" type="text" class="input-material @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                        placeholder="Name">
+                                    
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                         @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="email" type="email" class="input-material @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"
+                                        placeholder="E-Mail Address">
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                         @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="password" type="password" class="input-material @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"
+                                        placeholder="password">
+
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password" class="input-material" placeholder="confirm password">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">
+                                                {{ __('Register') }}
+                                        </button>                                   
+                                     </div>
+                                </form><small>Already have an account? </small><a href="{{ route('login') }}" class="signup">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights text-center">
+        <p>Design by <a href="https://github.com/eliyajoseph7" class="external">eliyajoseph7</a>
+                <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+            </p>
+        </div>
+    </div>
+
+    @endsection    
