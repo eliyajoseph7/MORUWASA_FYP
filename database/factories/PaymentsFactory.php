@@ -5,14 +5,25 @@
 use App\Payment;
 use Faker\Generator as Faker;
 
+
 $factory->define(Payment::class, function (Faker $faker) {
-    $random_number = mt_rand(1, 100);
+    // $autoIncrement = autoIncrement();
+
+    // $autoIncrement->next();
+    static $number = 1;
 
     return [
         //
         'amount' => $faker->numberBetween($min = 1200, $max = 50000),
         'status' => $faker->randomElement(['paid', 'notpaid']),
-        'customer_id' => $faker->unique()->numberBetween($min = 1, $max = 100),
+        'customer_id' => $number++
+        // 'customer_id' => $autoIncrement->current(),
         
     ];
 });
+// function autoIncrement()
+// {
+//     for ($i = 0; $i < 1000; $i++) {
+//         yield $i;
+//     }
+// }
