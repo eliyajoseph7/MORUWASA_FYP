@@ -16,7 +16,8 @@ $factory->define(Payment::class, function (Faker $faker) {
         //
         'amount' => $faker->numberBetween($min = 1200, $max = 50000),
         'status' => $faker->randomElement(['paid', 'notpaid']),
-        'customer_id' => $number++
+        'customer_id' => $number++,
+        'created_at' => $faker -> date("Y-m-d H:i:s") 
         // 'customer_id' => $autoIncrement->current(),
         
     ];
