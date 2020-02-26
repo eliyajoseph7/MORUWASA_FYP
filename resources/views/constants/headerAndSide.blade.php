@@ -57,7 +57,15 @@
                     </li>
                     
                     <li>
-                        <a href="{{ url('/customers') }}"><i class="fa fa-users"></i> <span class="nav-label">Customers</span></a>
+                        <a href="{{ url('/customers') }}"><i class="fa fa-users"></i> <span class="nav-label">Customers</span><span class="fa arrow"></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="{{ url('/domestic') }}">Domestic</a></li>
+                            <li><a href="{{ url('/industry') }}">Industries</a></li>
+                            <li><a href="{{ url('/institution') }}">Institution</a></li>
+                            <li><a href="{{ url('/commercial') }}">Commercial</a></li>
+                            <li><a href="{{ url('/tanks') }}">Tanks</a></li>
+                                                        
+                        </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
