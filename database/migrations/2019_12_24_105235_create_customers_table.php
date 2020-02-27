@@ -19,6 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('street');
             $table->string('gender');
             $table->string('phone');
+            $table->string('type');
             $table->timestamps();
         });
     }
