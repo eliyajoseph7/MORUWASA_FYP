@@ -33,7 +33,14 @@ class HomeController extends Controller
                         ->labels(['First', 'Second', 'Third'])
                         ->values([5,10,20])
                         ->dimensions(0,400);
-    return view('billshome',['chart' => $chart,'count' => $count]);
+
+        $chart1 = Charts::database($customers,'donut', 'morris')
+                        ->title(' customer category')
+                        ->width( 0 )
+                        ->groupBy('type')
+                        ->colors(['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00f0ff'])
+                        ->responsive(true);
+    return view('billshome',['chart' => $chart,'count' => $count, 'chart1' => $chart1]);
     }
 
 }
