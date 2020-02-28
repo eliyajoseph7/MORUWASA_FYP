@@ -12,7 +12,8 @@ $factory->define(Meter::class, function (Faker $faker) {
         //
                
         'meter_no' => $faker->unique()->numberBetween($min = 1, $max = 50000000),
-        'customer_id' => $number++
+        'customer_id' => $number++,
+        'type' => $faker->randomElement(['prepaid', 'postpaid']),
         // 'customer_id' => $faker->unique()->numberBetween($min = 1, $max = 10000),
 
         

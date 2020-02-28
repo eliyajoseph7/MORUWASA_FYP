@@ -12,6 +12,7 @@ $factory->define(Customer::class, function (Faker $faker) {
         'street' => $faker->randomElement(['Bigwa', 'Boma', 'Msanvu', 'Kihonda', 'Mazimbu', 'Mbuyuni', 'Mindu', 'Sabasaba', 'Mzinga']),
         'gender' => $faker->randomElement(['M', 'F']),
         'phone' => $faker->phoneNumber,
+        'type' => $faker->randomElement(['domestic', 'industry', 'institution', 'commercial', 'tank']),
         
 
         
