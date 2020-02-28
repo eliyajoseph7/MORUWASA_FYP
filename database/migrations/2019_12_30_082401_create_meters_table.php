@@ -19,6 +19,7 @@ class CreateMetersTable extends Migration
                                                                      *registration of meters even before it is assigned to a 
                                                                      *specific customer */
             $table->string('meter_no');
+            $table->string('type');
             $table->timestamps();
         });
     }
