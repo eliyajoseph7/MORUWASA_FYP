@@ -63,7 +63,7 @@
                             <li><a href="{{ url('/industry') }}">Industries</a></li>
                             <li><a href="{{ url('/institution') }}">Institution</a></li>
                             <li><a href="{{ url('/commercial') }}">Commercial</a></li>
-                            <li><a href="{{ url('/tanks') }}">Tanks</a></li>
+                            <li><a href="{{ url('/tank') }}">Tanks</a></li>
                                                         
                         </ul>
                     </li>

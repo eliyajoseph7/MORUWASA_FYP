@@ -14,6 +14,22 @@ use App\Customer;
 Route::get('/', function () {
     return view('auth/login');
 });
+
+Route::get('/domestic', function() {
+    return view('customerType/domestic');
+});
+Route::get('/industry', function() {
+    return view('customerType/industry');
+});
+Route::get('/institution', function() {
+    return view('customerType/institution');
+});
+Route::get('/commercial', function() {
+    return view('customerType/commercial');
+});
+Route::get('/tank', function() {
+    return view('customerType/tank');
+});
 // Route::get('/customer/{id}/payment', function ($id) {
      
 //     return Customer::find($id)->payments;
