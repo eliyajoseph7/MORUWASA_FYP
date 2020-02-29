@@ -80,3 +80,10 @@ Route::get('/units',[
     'as' => 'units.show',
     'uses' => 'Chart\InteractiveConsuptionChartController@getAllLiveConsuption'
 ]);
+Route::get('view/trends/{id}',[
+    'as' => 'trends',
+    'uses' => 'Chart\TrendsChartController@getAllDaysData'
+]);
+
+Route::get('/view/{id}', 'actions\ActionToCustomerController@view');
+
