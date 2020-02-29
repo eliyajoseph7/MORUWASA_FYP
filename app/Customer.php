@@ -27,7 +27,7 @@ class Customer extends Model
 
     public function meter(){
 
-        return $this->hasMany(Meter::class);
+        return $this->hasOne(Meter::class);
     }
 
     public function usage(){
