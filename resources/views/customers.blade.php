@@ -193,9 +193,7 @@
                                                             <td>{{( $customers -> name )}}</td>
                                                             <td>{{( $customers -> street )}}</td>
                                                             @if(count($customers->meter) > 0 )
-                                                                @foreach($customers->meter as $customer)
-                                                                    <td>{{( $customer -> meter_no )}}</td>
-                                                                @endforeach
+                                                                <td>{{( $customers->meter -> meter_no )}}</td>
                                                             @else
                                                                 <td>-</td>
                                                             @endif
@@ -210,7 +208,7 @@
                                                             @else
                                                                 <td>-</td>
                                                             @endif   
-                                                            <td class="center"><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
+                                                            <td class="center"><a href='{{ url("/view/{$customers -> id}") }}'><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
 
                                                         </tr>
                                                     @endforeach
