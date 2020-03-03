@@ -70,8 +70,8 @@
                     <li>
                         <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ url('/newMeter') }}">Register meter</a></li>
-                            <li><a href="{{ url('/addCustomer') }}">Add customer</a></li>
+                            <li><a href="{{ url('/meter') }}">Register meter</a></li>
+                            <li><a href="{{ url('/customers') }}">Add customer</a></li>
                             
                             
                         </ul>
