@@ -129,8 +129,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        // 'attribute-name' => [
+        //     'rule-name' => 'custom-message',
+        // ],
+        'phone' => [
+            'required' => 'phone number is required'
         ],
     ],
 
