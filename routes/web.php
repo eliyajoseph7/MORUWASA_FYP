@@ -1,6 +1,7 @@
 <?php
 
 use App\Customer;
+use App\Meter;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,11 +37,13 @@ Route::get('/tank', function() {
     
 // });
 
-// Route::get('/customer/{id}/meter', function($id){
-//     return Customer::find($id)->meter;
-// });
+Route::get('/meter/{id}/customer', function($id){
+    return Meter::find($id)->customer->name;
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/customers', 'CustomerController@index')->name('customers');
+Route::get('/meter', 'MeterController@meters')->name('meter');
+Route::post('/addCustomer', 'CustomerController@add');
 
