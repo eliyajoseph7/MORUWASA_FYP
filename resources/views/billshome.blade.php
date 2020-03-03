@@ -120,7 +120,7 @@
               </div>
             </div>
 
-            <!-- Pie Chart -->
+            <!-- donut Chart -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -141,9 +141,9 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                  <!-- <div class="chart-donut pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div> -->
                   {!! $chart1->render() !!}
-                  </div>
+                  <!-- </div> -->
                 </div>
               </div>
             </div>
