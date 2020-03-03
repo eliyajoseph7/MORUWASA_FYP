@@ -37,7 +37,7 @@ class HomeController extends Controller
         $chart1 = Charts::database($customers,'donut', 'morris')
                         ->title(' customer category')
                         ->width( 0 )
-                        ->groupBy('type')
+                        ->groupBy('category')
                         ->colors(['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00f0ff'])
                         ->responsive(true);
     return view('billshome',['chart' => $chart,'count' => $count, 'chart1' => $chart1]);
