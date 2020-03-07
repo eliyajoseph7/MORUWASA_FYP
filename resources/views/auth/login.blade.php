@@ -92,7 +92,7 @@
                                 <div class="logo text-center">
                                     <h1>Dashboard</h1>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p>The MORUWASA admin application</p>
                             </div>
                         </div>
                     </div>
