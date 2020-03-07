@@ -29,4 +29,9 @@ class Customer extends Model
 
         return $this->hasMany(Meter::class);
     }
+
+    public function usage(){
+
+        return $this->hasMany(Usage::class);
+    }
 }
