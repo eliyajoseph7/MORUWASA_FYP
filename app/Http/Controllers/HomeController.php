@@ -28,10 +28,11 @@ class HomeController extends Controller
         $customers = Customer::all();
         $count = count($customers);
 
-        $chart = Charts::create('line', 'highcharts')
-                        ->title('My nice chart')
-                        ->labels(['First', 'Second', 'Third'])
-                        ->values([5,10,20])
+        $chart = Charts::create('bar', 'highcharts')
+                        ->title('Water Consuption')
+                        ->labels(['Jan', 'Feb', 'March'])
+                        ->values([10000,7000,8000])
+                        ->elementLabel('water consumed(litres)')
                         ->dimensions(0,400);
 
         $chart1 = Charts::database($customers,'donut', 'morris')
