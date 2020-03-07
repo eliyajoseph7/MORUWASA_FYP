@@ -63,7 +63,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputmeter">Meter Number</label>
-      <select name="meter_no" class="form-control" id="inputmeter">
+      <select name="meter_no" class="form-control @error('meter_no') is-invalid @enderror" id="inputmeter" value="{{ old('meter_no') }}">
         @if(count($meter) > 0)
             @foreach($meter -> all() as $meter)
                 <option>{{($meter-> meter_no)}}</option>
@@ -72,6 +72,11 @@
             <option value="" selected>No free meter available</option> 
         @endif           
       </select>
+      @error('meter_no')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror       
     </div>
     <div class="form-group col-md-4">
       <label for="inputCategory">Category</label>
@@ -111,7 +116,7 @@
 </div>
 
 
-<div class="container responsive">
+<div class="container">
      <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Customers</h1>
