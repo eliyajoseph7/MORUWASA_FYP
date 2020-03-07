@@ -23,5 +23,13 @@ class DatabaseSeeder extends Seeder
         factory(App\Payment::class, 1000)->create()->each(function($payments){
             $payments->save();
             });
+
+        factory(App\Usage::class, 1000)->create()->each(function($usage){
+            $usage->save();
+            });
+
+        factory(App\Consuption::class, 1000)->create()->each(function($consuption){
+            $consuption->save();
+            });
     }
 }
