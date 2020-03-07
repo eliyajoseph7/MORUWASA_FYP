@@ -1,10 +1,27 @@
 <?php
 
 namespace App;
-
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 class Usage extends Model
 {
     //
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'customer_id',
+    ];
+    public function customer(){
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function consuption(){
+        return $this->hasOne(Consuption::class);
+    }
 }
