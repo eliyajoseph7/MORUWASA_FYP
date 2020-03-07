@@ -1,4 +1,5 @@
 @include('constants/headerAndSide')
+
 <div class="container-fluid">
 
           <!-- Page Heading -->
@@ -9,83 +10,66 @@
 
           <!-- Content Row -->
           <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly paid bils)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total customers</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{( $count )}}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-users fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Paid bills</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">37%</div>
+                    <div class="col-lg-3">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <div class="ibox-tools">
+                                    <span class="label label-success float-right">Monthly</span>
+                                </div>
+                                <h5>Income</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins">40 886,200</h1>
+                                <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                                <small>Total income</small>
+                            </div>
                         </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 37%" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <div class="ibox-tools">
+                                    <span class="label label-info float-right">currently</span>
+                                </div>
+                                <h5>Customers</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins">{{( $count )}}</h1>
+                                <!-- <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div> -->
+                                <small>Total customers</small>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <div class="col-lg-3">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <div class="ibox-tools">
+                                    <span class="label label-primary float-right">Today</span>
+                                </div>
+                                <h5>suspended</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins">106</h1>
+                                <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div> -->
+                                <small>suspended customers</small>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">suspended customers</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                    <div class="col-lg-3">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <div class="ibox-tools">
+                                    <span class="label label-danger float-right">currently</span>
+                                </div>
+                                <h5>Paid bills</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins">70%</h1>
+                                <!-- <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div> -->
+                                <small>In last month</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <!-- Content Row -->
@@ -97,7 +81,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Consuption Overview</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -226,6 +210,7 @@
 
 </body>
 </html>
+
 
 <script>
         $(document).ready(function() {
