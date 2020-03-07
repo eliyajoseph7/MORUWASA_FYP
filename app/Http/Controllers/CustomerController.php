@@ -28,6 +28,7 @@ class CustomerController extends Controller
             'phone' => 'required|regex:/^(\+255)[0-9]{9}$/',
             'street' => 'required',
             'category' => 'required',
+            'meter_no' => 'required',
         ]);
 
         $addCustomer = new Customer;
