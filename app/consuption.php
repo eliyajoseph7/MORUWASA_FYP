@@ -4,8 +4,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class consuption extends Model
+class Consuption extends Model
 {
+    //
     //
     use Notifiable;
 
@@ -15,13 +16,6 @@ class consuption extends Model
      * @var array
      */
     protected $fillable = [
-        'usage_id', 'consuption',
+        'consuption',
     ];
-    protected $primaryKey = 'usage_id';
-
-    // public $incrementing = false;
-
-    public function usage(){
-        return $this->belongsTo(Usage::class);
-    }
 }
