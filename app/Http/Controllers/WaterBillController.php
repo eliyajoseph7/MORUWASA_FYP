@@ -23,8 +23,11 @@ class WaterBillController extends Controller
                         
                 // print_r($usages);
         // return $usages; 
+        /* for postgres, the cast(something as data type) must be added otherwise 
+        * SQLSTATE[42883]: Undefined function: 7 ERROR: function sum(character varying) does not exist LINE 1: 
+        *ty   will be thrown*/
         $usages = Usage::join('consuptions', 'usages.id', '=', 'consuptions.id')
-                        ->select('customer_id', DB::raw("SUM(consuptions.consuption) as units"))
+                        ->select('customer_id', DB::raw("SUM(cast(consuptions.consuption as double precision)) as units"))
                         ->groupBy('customer_id')
                         ->get();
 
