@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             $usage->save();
             });
 
-        factory(App\Consuption::class, 1000)->create()->each(function($consuption){
+        factory(App\Consuption::class, 5000)->create()->each(function($consuption){
             $consuption->save();
             });
     }
