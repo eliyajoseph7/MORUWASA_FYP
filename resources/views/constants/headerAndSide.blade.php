@@ -61,21 +61,21 @@
                     </li>
                     
                     <li>
-                        <a href="{{ url('/customers') }}"><i class="fa fa-users"></i> <span class="nav-label">Customers</span><span class="fa arrow"></a>
+                        <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Customers</span><span class="fa arrow"></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ url('/domestic') }}">Domestic</a></li>
-                            <li><a href="{{ url('/industry') }}">Industries</a></li>
-                            <li><a href="{{ url('/institution') }}">Institution</a></li>
-                            <li><a href="{{ url('/commercial') }}">Commercial</a></li>
-                            <li><a href="{{ url('/tank') }}">Tanks</a></li>
+                            <li><a href="{{ url('/domestic') }}"><i style="color:blue" class="fa fa-circle-o"></i>Domestic</a></li>
+                            <li><a href="{{ url('/industry') }}"><i style="color:green" class="fa fa-circle-o"></i>Industries</a></li>
+                            <li><a href="{{ url('/institution') }}"><i style="color:orange" class="fa fa-circle-o"></i>Institution</a></li>
+                            <li><a href="{{ url('/commercial') }}"><i style="color:red" class="fa fa-circle-o"></i>Commercial</a></li>
+                            <li><a href="{{ url('/tank') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Tanks</a></li>
                                                         
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ url('/meter') }}">Register meter</a></li>
-                            <li><a href="{{ url('/customers') }}">Add customer</a></li>
+                            <li><a href="{{ url('/meter') }}"><i style="color:green" class="fa fa-circle-o"></i>Register meter</a></li>
+                            <li><a href="{{ url('/customers') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Add customer</a></li>
                             
                             
                         </ul>
@@ -310,6 +310,8 @@
     <script src="{{url('js/bootstrap.js')}}"></script>
     <script src="{{url('js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
     <script src="{{url('js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{url('js/dataTables/datatables.min.js')}}"></script>
+    <script src="{{url('js/dataTables/dataTables.bootstrap4.min.js')}}"></script>
 
     <!-- Flot -->
     <script src="{{url('js/plugins/flot/jquery.flot.js')}}"></script>
