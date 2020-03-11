@@ -10,6 +10,28 @@
     </div>
 @endif
 <div class="container-fluid responsive">
+
+    <div class="row wrapper border-bottom white-bg page-heading m-auto mb-3">
+        <div class="col-lg-10">
+            <h2>Customers</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{url('/home')}}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>Activities</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Register/View customers</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+
+<!-- Form start -->
 <div class=" shadow mb-3">
 <form class="p-3 container jumbotron" action="{{ url('/addCustomer') }}" method="POST">
 @csrf
@@ -103,112 +125,146 @@
       </select>
     </div>
   </div>
-  <!-- <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div> -->
   <button type="submit" class="btn btn-primary">Register</button>
 </form>
 </div>
+</div>
 
-
-<div class="container">
-     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Customers</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-    </div>
-
-    <table class="table table-borderless mydatatable responsive" style="width:100%">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Street</th>
-                <th>Meter no.</th>
-                <th>Gender</th>
-                <th>Phone</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Trend</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $count = 0;
-                
-                ?>
-                    @if(count($customers) > 0 )
-                        @foreach($customers -> all() as $customers) 
-                         
-                            <?php 
-                              $count += 1;
-                            ?>
-                
-            <tr>
-                <td>{{( $count )}}</td>
-                <td>{{( $customers -> name )}}</td>
-                <td>{{( $customers -> street )}}</td>
-                @if(count($customers->meter) > 0 )
-                    @foreach($customers->meter as $customer)
-                        <td>{{( $customer -> meter_no )}}</td>
-                    @endforeach
-                @else
-                    <td>-</td>
-                @endif
-                <td>{{( $customers -> gender )}}</td>
-                <td>{{( $customers -> phone )}}</td>
-                <td>{{( $customers -> category )}}</td>
-               
-            <!-- getting customer's payment status from payments table -->
-            @if(count($customers->payments) > 0 )
-                @foreach($customers->payments as $cust)
-                    <td>{{( $cust -> status )}}</td>
-                @endforeach
-            @else
-                <td>-</td>
-            @endif                        
-            <td><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
-              
-                <!-- <td class="yes"><span title="paid" data-toggle="tooltip"><i class="fa fa-check-circle fa-2x"></span></span<i></td> -->
-            </tr>    
-                  @endforeach
-            @endif()  
-                   
-                    
-            </tbody>
-        <tfoot>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Street</th>
-                <th>Meter no.</th>
-                <th>Gender</th>
-                <th>Phone</th>
-                <th>Category</th>
-                <th>Status</th>
-                <th>Trend</th>
-                
-            </tr>
-            
-        </tfoot>
-    </table>
+<!-- Form end -->
     
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Registered Customers</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#" class="dropdown-item">Config option 1</a>
+                                    </li>
+                                    <li><a href="#" class="dropdown-item">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                    <div class="ibox-content">
+
+                        <div class="table-responsive">
+                            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                        
+                                <table class="table table-striped table-bordered table-hover dataTables-example dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" role="grid">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 30px;">S/No.</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266px;">Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266px;">Street</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 239px;">Meter no</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 183px;">Gender</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Phone</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Category</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Trend</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        $count = 0;
+                                            
+                                            ?>
+                                                @if(count($customers) > 0 )
+                                                    @foreach($customers -> all() as $customers) 
+                                                    
+                                                        <?php 
+                                                        $count += 1;
+                                                        ?>
+                                                        
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td class="sorting_1">{{( $count )}}</td>
+                                                            <td>{{( $customers -> name )}}</td>
+                                                            <td>{{( $customers -> street )}}</td>
+                                                            @if(count($customers->meter) > 0 )
+                                                                @foreach($customers->meter as $customer)
+                                                                    <td>{{( $customer -> meter_no )}}</td>
+                                                                @endforeach
+                                                            @else
+                                                                <td>-</td>
+                                                            @endif
+                                                            <td class="center">{{( $customers -> gender )}}</td>
+                                                            <td class="center">{{( $customers -> phone )}}</td>
+                                                            <td class="center">{{( $customers -> category )}}</td>
+                                                            <!-- getting customer's payment status from payments table -->
+                                                            @if(count($customers->payments) > 0 )
+                                                                @foreach($customers->payments as $cust)
+                                                                    <td>{{( $cust -> status )}}</td>
+                                                                @endforeach
+                                                            @else
+                                                                <td>-</td>
+                                                            @endif   
+                                                            <td class="center"><a href="#"><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
+
+                                                        </tr>
+                                                    @endforeach
+                                                @endif    
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">S/No.</th>
+                                            <th rowspan="1" colspan="1">Name</th>
+                                            <th rowspan="1" colspan="1">Street</th>
+                                            <th rowspan="1" colspan="1">Meter no</th>
+                                            <th rowspan="1" colspan="1">Gender</th>
+                                            <th rowspan="1" colspan="1">Phone</th>
+                                            <th rowspan="1" colspan="1">Category</th>
+                                            <th rowspan="1" colspan="1">Status</th>
+                                            <th rowspan="1" colspan="1">Trend</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>        
 </div>
-</div>
-<!-- <script src="{{ url('js/datatable/jquery-3.3.1.js') }}"></script> -->
-<script src="{{ url('js/datatable/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url('js/datatable/dataTables.bootstrap4.min.js') }}"></script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-    $('.mydatatable').DataTable();
-} );
 
-</script>
+        <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'CustomerInfos'},
+                    {extend: 'pdf', title: 'CustomerInfos'},
 
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
