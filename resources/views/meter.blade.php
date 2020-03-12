@@ -123,8 +123,10 @@
                                                         <tr class="gradeA odd" role="row">
                                                             <td class="sorting_1">{{( $count )}}</td>
                                                             <td >{{( $meter -> meter_no )}}</td>
-                                                            @if(count(($meter->customer)->toArray()) > 0 )
+                                                            @if($meter->customer != null)
+                                                                @if(count(($meter->customer)->toArray()) > 0 )
                                                                 <td>{{( $meter->customer -> name )}}</td>
+                                                                @endif
                                                             @else
                                                                 <td>-</td>
                                                             @endif
