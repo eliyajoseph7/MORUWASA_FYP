@@ -18,4 +18,8 @@ class Consuption extends Model
     protected $fillable = [
         'consuption',
     ];
+
+    public function usage(){
+        return $this->belongsTo(Usage::class);
+    }
 }
