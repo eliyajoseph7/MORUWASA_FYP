@@ -37,7 +37,7 @@
 @csrf
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="name">{{_('Name')}}</label>
+      <label for="name">Name</label>
       <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
               name="name" value="{{ old('name') }}" autocomplete="name" autofocus placeholder="John Ndalo">
 
@@ -48,7 +48,7 @@
       @enderror
     </div>
     <div class="form-group col-md-6">
-      <label for="phone">{{_('Phone')}}</label>
+      <label for="phone">Phone</label>
       <input name="phone" type="tel" class="form-control @error('phone') is-invalid @enderror"
               id="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="+255123456789">
     
