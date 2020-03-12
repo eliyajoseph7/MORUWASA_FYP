@@ -37,7 +37,7 @@
     @csrf
     <div class="form-row">
         <div class="form-group col-md-6">
-        <label for="name">{{_('Meter Number')}}</label>
+        <label for="name">Meter Number</label>
         <input id="name" type="text" class="form-control @error('meter_no') is-invalid @enderror"
                 name="meter_no" value="{{ old('meter_no') }}" autocomplete="meter_no" autofocus placeholder="Enter new meter">
 
