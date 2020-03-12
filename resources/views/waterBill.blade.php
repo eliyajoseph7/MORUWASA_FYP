@@ -92,7 +92,7 @@
                                                         
                                                         <tr class="gradeA odd" role="row">
                                                             <td class="sorting_1">{{( $count )}}</td>
-                                                            @if(($usages->customer) > 0 )
+                                                            @if(count($usages->customer) > 0 )
                                                             <td>{{( $usages->customer -> name )}}</td>
                                                             <td>{{( $usages->customer -> category )}}</td>
                                                             @else
