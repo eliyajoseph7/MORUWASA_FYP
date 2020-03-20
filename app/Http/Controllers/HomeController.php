@@ -35,7 +35,7 @@ class HomeController extends Controller
                         ->elementLabel('water consumed(litres)')
                         ->dimensions(0,400);
 
-        $chart1 = Charts::database($customers,'donut', 'morris')
+        $chart1 = Charts::database($customers,'donut', 'google')
                         ->title(' customer category')
                         ->width( 0 )
                         ->groupBy('category')
