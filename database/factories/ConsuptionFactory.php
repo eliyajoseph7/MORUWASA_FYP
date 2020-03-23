@@ -10,6 +10,6 @@ $factory->define(Consuption::class, function (Faker $faker) {
     return [
         //
         'consuption' => $faker -> randomDigit($min=1, $max=100),
-        'created_at' => $faker -> date(),
+        // 'created_at' => $faker -> date(),
     ];
 });
