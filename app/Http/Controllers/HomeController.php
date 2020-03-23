@@ -39,7 +39,7 @@ class HomeController extends Controller
                         ->title(' customer category')
                         ->width( 0 )
                         ->groupBy('category')
-                        ->colors(['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00f0ff'])
+                        ->colors(['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00f0ff', '#80BAEB'])
                         ->responsive(true);
     return view('billshome',['chart' => $chart,'count' => $count, 'chart1' => $chart1]);
     }
