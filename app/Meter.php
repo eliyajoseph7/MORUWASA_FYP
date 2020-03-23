@@ -23,4 +23,8 @@ class Meter extends Model
         return $this->belongsTo(Customer::class);
     }
 
+    public function waterbill(){
+
+        return $this->hasMany(WaterBill::class, 'customer_id');
+    }
 }
