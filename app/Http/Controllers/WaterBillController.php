@@ -31,7 +31,7 @@ class WaterBillController extends Controller
                         ->groupBy('customer_id')
                         ->get();
 
-    if(date('d') == 28){
+    if(date('d') == 24){
         $data = DB::table('customers')
                     ->join('usages', 'customers.id', '=', 'usages.customer_id')
                     ->join('consuptions', 'usages.id', '=', 'consuptions.id')
