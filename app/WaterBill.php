@@ -15,6 +15,14 @@ class WaterBill extends Model
      * @var array
      */
     protected $fillable = [
-        'customer_id', 'units', 'amount',
+        'customer_id', 'units', 'amount', 'name',
     ];
+    
+    public function customer(){
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function meter(){
+        return $this->belongsTo(Meter::class, 'customer_id');
+    }
 }
