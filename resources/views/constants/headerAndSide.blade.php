@@ -87,7 +87,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ url('/waterBill') }}"><i class="fa fa-pie-chart"></i> <span class="nav-label">View Bills</span>  </a>
+                        <a href="{{ url('/waterBill') }}"><i class="fas fa-money-bill"></i> <span class="nav-label">View Bills</span>  </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/invoices') }}"><i class="fas fa-file-invoice-dollar"></i> <span class="nav-label">Invoices</span></a>
                     </li>
                     <!--<li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning float-right">16/24</span></a>
