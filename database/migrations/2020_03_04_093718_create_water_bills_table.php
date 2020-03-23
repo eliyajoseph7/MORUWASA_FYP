@@ -15,10 +15,11 @@ class CreateWaterBillsTable extends Migration
     {
         Schema::create('water_bills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('customer_id')->unsigned();
+            $table->string('name');
             $table->string('units');
             $table->string('amount');
             $table->timestamps();
+            $table->integer('customer_id')->unsigned();
         });
     }
 
