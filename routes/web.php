@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/setup', function () {
     return view('staff/registerStaff');
 });
+Route::get('/invoices', 'Invoice\InvoiceController@invoice');
 
 // Route::get('/domestic', function() {
 //     return view('customerType/domestic');
@@ -52,7 +53,7 @@ Route::get('/customers', 'CustomerController@index')->name('customers');
 Route::get('/meter', 'MeterController@meters')->name('meter');
 Route::post('/addCustomer', 'CustomerController@add');
 Route::post('/addMeter', 'MeterController@add');
-Route::post('/registerStaff', 'Auth\SetupController@add');
+Route::post('/registerStaff', 'setups\SetupController@add');
 
 Route::get('/data', 'Chart\ChartDataController@getMonthlyConsuptionData');
 
