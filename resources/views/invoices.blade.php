@@ -1,17 +1,5 @@
 @include('constants.headerAndSide')
 
-@if(count($invoice) > 0)
- <?php   
-    function randomNumber($length) {
-        $result = '';
-
-        for($i = 0; $i < $length; $i++) {
-            $result .= mt_rand(0, 9);
-        }
-
-        return $result;
-    } 
-?>
 
                 <div class="col-lg-12">
                     <div class="tabs-container">
@@ -23,6 +11,19 @@
                             <li><a class="nav-link" data-toggle="tab" href="#tab-tank">Tank</a></li>
                             <li><a class="nav-link" data-toggle="tab" href="#tab-kiosk">Kiosk</a></li>
                         </ul>
+                        @if(count($invoice) > 0)
+                            <?php   
+                                function randomNumber($length) {
+                                    $result = '';
+
+                                    for($i = 0; $i < $length; $i++) {
+                                        $result .= mt_rand(0, 9);
+                                    }
+
+                                    return $result;
+                                } 
+                            ?>
+ 
                         <div class="tab-content">
                             <div role="tabpanel" id="tab-domestic" class="tab-pane active">
                                 <div class="panel-body">
@@ -56,11 +57,11 @@
                             </div>
                         </div>
 
-
+                        @endif
                     </div>
                 </div>
 
-@endif            
+            
 
 
 
