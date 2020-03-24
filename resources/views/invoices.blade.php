@@ -76,3 +76,28 @@
         });
 
 </script>                
+
+<style>
+
+@media print {
+    .nav.nav-tabs li:not(.active){
+        display: none;
+    }
+    .invoice{
+    	padding: 10px 20px;
+    }
+    .theme-config, #printInvoice{
+        display: none;
+    }
+
+    .invoice{
+		background-position: center center;
+		background-repeat: no-repeat;
+
+	}
+	.table-responsive table{
+		background-color: transparent !important;
+	}
+
+}
+</style>
