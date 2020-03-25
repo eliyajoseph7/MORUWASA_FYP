@@ -11,7 +11,7 @@
         },
 
         ajaxGetConsuptionMonthlyData: function() {
-            var urlPath = 'http://' + '127.0.0.1:8000' + '/get-categories';
+            var urlPath = 'http://' + window.location.hostname + '/get-categories';
             var request = $.ajax({
                 method: 'GET',
                 url: urlPath
@@ -34,12 +34,12 @@
                 data: {
                     labels: response.category,
                     datasets: [{
-                      data: response.customer_count_data,
-                      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#ff0000', '#00ff00', '#0000ff'],
-                      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-                      hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        data: response.customer_count_data,
+                        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#ff0000', '#00ff00', '#0000ff'],
+                        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
                     }],
-                  },
+                },
                 // data: {
                 //     // labels: response.category, // The response got from the ajax request containing all month names in the database
                 //     datasets: [{
@@ -60,21 +60,21 @@
                 options: {
                     maintainAspectRatio: false,
                     tooltips: {
-                      backgroundColor: "#19252F",
-                      bodyFontColor: "#fff",
-                      borderColor: '#dddfeb',
-                      borderWidth: 1,
-                      xPadding: 15,
-                      yPadding: 15,
-                      displayColors: true,
-                      caretPadding: 10,
-                      
+                        backgroundColor: "#19252F",
+                        bodyFontColor: "#fff",
+                        borderColor: '#dddfeb',
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: true,
+                        caretPadding: 10,
+
                     },
                     legend: {
-                      display: true
+                        display: true
                     },
                     cutoutPercentage: 50,
-                  },
+                },
             });
         }
     };
