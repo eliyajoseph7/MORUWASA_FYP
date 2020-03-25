@@ -95,13 +95,11 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Total customers in each category</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <!-- <div class="chart-donut pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div> -->
-                  {!! $chart1->render() !!}
-                  <!-- </div> -->
+                    <canvas id="myChart1"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
                 </div>
               </div>
             </div>
@@ -167,6 +165,7 @@
 </html>
 
 <script src="{{url('js/plugins/chartJs/create-charts.js')}}"></script>
+<script src="{{url('js/plugins/chartJs/create-charts1.js')}}"></script>
 <script src="{{url('js/plugins/chartJs/create-charts2.js')}}"></script>
 
 <script>
