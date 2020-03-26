@@ -1,5 +1,26 @@
 @include('constants.headerAndSide')
+<div class="row wrapper border-bottom white-bg page-heading m-auto mb-3">
+        <div class="col-lg-10 top">
+            <h2></h2>
 
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{url('/home')}}">Home</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Bill Invoices</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+
+    <div class="text-right">
+        <button id="printInvoice" class="btn btn-primary"><i class="fa fa-print"></i> Print</button>
+       
+</div>
 
                 <div class="col-lg-12">
                     <div class="tabs-container">
@@ -86,7 +107,7 @@
     .invoice{
     	padding: 10px 20px;
     }
-    .theme-config, #printInvoice{
+    .theme-config, #printInvoice, li a{
         display: none;
     }
 

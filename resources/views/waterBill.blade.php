@@ -3,7 +3,7 @@
 <div class="container-fluid responsive">
     <div class="row wrapper border-bottom white-bg page-heading m-auto mb-3">
         <div class="col-lg-10">
-            <h2>Customers</h2>
+            <h2></h2>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{url('/home')}}">Home</a>
