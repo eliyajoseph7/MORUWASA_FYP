@@ -55,7 +55,7 @@ Route::post('/addCustomer', 'CustomerController@add');
 Route::post('/addMeter', 'MeterController@add');
 Route::post('/registerStaff', 'Auth\SetupController@add');
 
-Route::get('/data', 'Chart\ChartDataController@getAllMonths');
+Route::get('/data', 'Chart\ChartDataController@getMonthlyConsuptionData');
 Route::get('/get-categories', 'Chart\CustomerCategoryChartController@getTotalCategoryData');
 Route::get('/get-consuption', 'Chart\CategoryConsuptionChartController@getMonthlyConsuptionData');
 
