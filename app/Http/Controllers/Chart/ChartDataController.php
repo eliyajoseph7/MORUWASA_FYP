@@ -11,9 +11,9 @@ class ChartDataController extends Controller
     public function getAllMonths()
     {
         $month_array = array();
-        $consuptions_dates = Consuption::select('created_at')->orderBy('created_at')->get();
+        $consuptions_dates = Consuption::orderBy('created_at')->pluck('created_at');
         $consuptions_dates = json_decode($consuptions_dates);
-
+return $consuptions_dates;
         if (! empty($consuptions_dates)) {
             foreach ($consuptions_dates as $unformatted_date) {
                 $date = new \DateTime($unformatted_date->created_at);
