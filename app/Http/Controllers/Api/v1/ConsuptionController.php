@@ -54,4 +54,20 @@ class ConsuptionController extends Controller
     {
         return new ConsuptionResourceCollection(Consuption::paginate(5));
     }
+
+    public function show( $consuption): ConsuptionResource
+    {
+        $meter = new Meter;
+        if($meter::where('meter_no', '=', $consuption)->exists()){
+            $customer = $meter::where('meter_no', '=', $consuption)->pluck('customer_id');
+            $consumed = Usage::join('consuptions', 'usages.id', '=', 'consuptions.id')
+                            ->where('usages.customer_id', $customer)
+                            ->orderBy('consuptions.created_at')
+                            ->get('consuptions.consuption');
+        return new ConsuptionResource($consumed);
+        }else{
+            return new ConsuptionResource(["The meter number seems to be invalid"]);
+        }
+        
+    }
 }
