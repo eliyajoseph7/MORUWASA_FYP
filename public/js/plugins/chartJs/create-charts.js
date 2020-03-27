@@ -11,10 +11,10 @@
         },
 
         ajaxGetConsuptionMonthlyData: function() {
-            var urlPath = 'http://' + window.location.hostname + '/data';
+            // var urlPath = 'http://' + window.location.hostname + '/data';
             var request = $.ajax({
                 method: 'GET',
-                url: urlPath
+                url: "{{ route('data.show') }}"
             });
 
             request.done(function(response) {
