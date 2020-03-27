@@ -61,7 +61,7 @@ Route::get('/get-categories', 'Chart\CustomerCategoryChartController@getTotalCat
 Route::get('/get-consuption', 'Chart\CategoryConsuptionChartController@getMonthlyConsuptionData');
 Route::get('/data',[
     'as' => 'data.show',
-    'uses' => 'ChartDataController@getMonthlyConsuptionData'
+    'uses' => 'Chart\ChartDataController@getMonthlyConsuptionData'
 ]);
 Route::get('/units',[
     'as' => 'units.show',
