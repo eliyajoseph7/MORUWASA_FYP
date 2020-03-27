@@ -21,6 +21,9 @@
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet"> -->
     
+    <!-- adminlte styles for cards -->
+    <link rel="stylesheet" href="{{ url('css/adminlte.min.css')}}">
+
 
     <!-- Toastr style -->
     <link href="{{ url('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
