@@ -55,7 +55,7 @@
                                 unit: 'date'
                             },
                             gridLines: {
-                                display: false
+                                display: true
                             },
                             ticks: {
                                 maxTicksLimit: 7
