@@ -55,10 +55,23 @@ Route::post('/addCustomer', 'CustomerController@add');
 Route::post('/addMeter', 'MeterController@add');
 Route::post('/registerStaff', 'Auth\SetupController@add');
 
-/* controllers for charts */
+
 // Route::get('/data', 'Chart\ChartDataController@getMonthlyConsuptionData');
-Route::get('/get-categories', 'Chart\CustomerCategoryChartController@getTotalCategoryData');
-Route::get('/get-consuption', 'Chart\CategoryConsuptionChartController@getMonthlyConsuptionData');
+// Route::get('/get-categories', 'Chart\CustomerCategoryChartController@getTotalCategoryData');
+// Route::get('/get-consuption', 'Chart\CategoryConsuptionChartController@getMonthlyConsuptionData');
+
+    /*
+    *      controllers for charts 
+    */
+Route::get('/get-categories', [
+     'as'  => 'categories',
+     'uses' => 'Chart\CustomerCategoryChartController@getTotalCategoryData'
+]);
+Route::get('/get-consuption', [
+     'as'  => 'consumptions',
+     'uses' => 'Chart\CategoryConsuptionChartController@getMonthlyConsuptionData'
+]);
+                
 Route::get('/data',[
     'as' => 'data.show',
     'uses' => 'Chart\ChartDataController@getMonthlyConsuptionData'
