@@ -2,163 +2,191 @@
 
 <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-                    <div class="col-lg-3">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <div class="ibox-tools">
-                                    <span class="label label-success float-right">Monthly</span>
-                                </div>
-                                <h5>Income</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">40 886,200</h1>
-                                <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
-                                <small>Total income</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <div class="ibox-tools">
-                                    <span class="label label-info float-right">currently</span>
-                                </div>
-                                <h5>Customers</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">{{( $count )}}</h1>
-                                <!-- <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div> -->
-                                <small>Total customers</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <div class="ibox-tools">
-                                    <span class="label label-primary float-right">Today</span>
-                                </div>
-                                <h5>suspended</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">106</h1>
-                                <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div> -->
-                                <small>suspended customers</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <div class="ibox-tools">
-                                    <span class="label label-danger float-right">currently</span>
-                                </div>
-                                <h5>Paid bills</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">70%</h1>
-                                <!-- <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div> -->
-                                <small>In last month</small>
-                            </div>
-                        </div>
-                    </div>
-          </div>
-
-          <!-- Content Row -->
-
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Consuption Overview in all months</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <canvas id="myAreaChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
-                </div>
-              </div>
-            </div>
-
-            <!-- donut Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Total customers in each category</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="myChart1"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Monthly consuption in each customer's categories</h6>
-                </div>
-                <div class="card-body">
-                  <canvas id="myChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
-                </div>
-              </div>
-
-              <!-- Color System -->
-              <div class="row">
-               
-              </div>
-
-            </div>
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
-                  </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw →</a>
-                </div>
-              </div>
-
-              <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+          <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
+
+        <!-- Content Row -->
+        <div class="row">
+                  <div class="col-lg-3">
+                      <div class="ibox ">
+                          <div class="ibox-title">
+                              <div class="ibox-tools">
+                                  <span class="label label-success float-right">Monthly</span>
+                              </div>
+                              <h5>Income</h5>
+                          </div>
+                          <div class="ibox-content">
+                              <h1 class="no-margins">40 886,200</h1>
+                              <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                              <small>Total income</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div class="ibox ">
+                          <div class="ibox-title">
+                              <div class="ibox-tools">
+                                  <span class="label label-info float-right">currently</span>
+                              </div>
+                              <h5>Customers</h5>
+                          </div>
+                          <div class="ibox-content">
+                              <h1 class="no-margins">{{( $count )}}</h1>
+                              <!-- <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div> -->
+                              <small>Total customers</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div class="ibox ">
+                          <div class="ibox-title">
+                              <div class="ibox-tools">
+                                  <span class="label label-primary float-right">Today</span>
+                              </div>
+                              <h5>suspended</h5>
+                          </div>
+                          <div class="ibox-content">
+                              <h1 class="no-margins">106</h1>
+                              <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div> -->
+                              <small>suspended customers</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3">
+                      <div class="ibox ">
+                          <div class="ibox-title">
+                              <div class="ibox-tools">
+                                  <span class="label label-danger float-right">currently</span>
+                              </div>
+                              <h5>Paid bills</h5>
+                          </div>
+                          <div class="ibox-content">
+                              <h1 class="no-margins">70%</h1>
+                              <!-- <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div> -->
+                              <small>In last month</small>
+                          </div>
+                      </div>
+                  </div>
+        </div>
+
+        <!-- Content Row -->
+
+        <div class="row">
+
+          <!-- Area Chart -->
+          <div class="col-xl-8 col-lg-7">
+            <div class="card card-primary card-outline mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Consuption Overview in all months</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <canvas id="myAreaChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
+              </div>
+            </div>
+          </div>
+
+          <!-- donut Chart -->
+          <div class="col-xl-4 col-lg-5">
+            <div class="card card-primary card-outline mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Total customers in each category</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                  <canvas id="myChart1"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+
+          <!-- Content Column -->
+          <div class="col-lg-6 mb-4">
+
+            <!-- Project Card Example -->
+            <div class="card card-primary card-outline mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Monthly consuption in each customer's categories</h6>
+              </div>
+              <div class="card-body">
+                <canvas id="myChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
+              </div>
+            </div>
+
+            <!-- Color System -->
+            <div class="row">
+              
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 mb-4">
+
+            <!-- Illustrations -->
+            <div class="card card-primary card-outline mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+              </div>
+              <div class="card-body">
+                <div class="text-center">
+                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
+                </div>
+                <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw →</a>
+              </div>
+            </div>
+
+            <!-- Approach -->
+            <div class="card card-primary card-outline mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+              </div>
+              <div class="card-body">
+                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+                <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The interactive chart -->
+      <div class="pb-3">  
+        <div class="row">
+          <div class="col-md-12">
+              <div class="card card-primary card-outline">
+                  <div class="card-header">
+                      <h3 class="card-title">
+                      <i class="far fa-chart-bar"></i>
+                        Each day connsumptions
+                      </h3>
+
+                      <div class="card-tools">
+                          <h3><?php echo date('D,d-M,Y'); ?></h3>
+                      </div>
+                  </div>
+
+                  <div class="card-body">
+                      <div class="row" style="height: 50vh">
+                          <div class="col-md-12 h-100">
+                          <canvas id="myLiveChart"  style="height: 0px; padding: 0px; position: relative;"></canvas>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+</div>
 
 
 </body>
@@ -272,3 +300,54 @@
         });
     </script> 
 
+<!-- Interactive chart script -->
+<script>
+  var ctx = document.getElementById("myLiveChart");
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Units',
+        data: [],
+        borderWidth: 1,
+        lineTension: 0.3,
+        backgroundColor: "rgba(2,117,216,0.5)",
+        
+      }]
+    },
+    options: {
+      scales: {
+        xAxes: [],
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      },
+    }
+  });
+  var updateChart = function() {
+    $.ajax({
+      url: "{{ route('units.show') }}",
+      type: 'GET',
+      dataType: 'json',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(data) {
+        myChart.data.labels = data.time;
+        myChart.data.datasets[0].data = data.units;
+        myChart.update();
+      },
+      error: function(data){
+        console.log(data);
+      }
+    });
+  }
+  
+  updateChart();
+  setInterval(() => {
+    updateChart();
+  }, 1000);
+</script>
