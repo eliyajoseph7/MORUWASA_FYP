@@ -33,8 +33,12 @@
                                     <abbr title="Phone">P:</abbr> {{( $invoices -> customer -> phone)}}
                                 </address>
                                 <p>
-                                    <span><strong>Invoice Date:</strong> <?php echo date('M-m-Y') ?></span><br>
-                                    <span><strong>Control.No:</strong> {{( randomNumber(12) )}} </span>
+                                    <span><strong>Invoice Date:</strong> <?php echo date('d,M-Y') ?></span><br>
+                                    <span><strong>Control.No:</strong>
+                                    @if(count($invoices -> control) > 0)
+                                            {{( $invoices -> control -> control_no )}}
+                                    @endif
+                                    </span>
                                 </p>
                             </div>
                         </div>
