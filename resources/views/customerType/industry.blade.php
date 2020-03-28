@@ -34,9 +34,11 @@
                                 <p>
                                     <span><strong>Invoice Date:</strong> <?php echo date('d,M-Y') ?></span><br>
                                     <span><strong>Control.No:</strong>
-                                    @if(count($invoices -> control) > 0)
-                                            {{( $invoices -> control -> control_no )}}
-                                    @endif
+                                        @if($invoices -> control != null)
+                                            @if(count(($invoices -> control)->toArray()) > 0)
+                                                    {{( $invoices -> control -> control_no )}}
+                                            @endif
+                                         @endif
                                     </span>
                                 </p>
                             </div>
