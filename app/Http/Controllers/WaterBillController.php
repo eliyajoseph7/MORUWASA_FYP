@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\ControlNumber;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -64,6 +65,25 @@ class WaterBillController extends Controller
         }  
             
           DB::table('water_bills')->insert($inserts);
+
+        $control = new ControlNumber();
+        $inserts = [];
+        $bill = WaterBill::whereMonth('created_at', date('m'))->get();
+
+        foreach($bill as $bill){
+            $result = '';
+
+            for($i = 0; $i < 12; $i++) {
+                $result .= mt_rand(0, 9);
+
+
+            }
+            $inserts[] = ['control_no' => $result,
+                          'created_at' => now()
+            ];
+
+        }
+        DB::table('control_numbers')->insert($inserts);
     }    
            
 
