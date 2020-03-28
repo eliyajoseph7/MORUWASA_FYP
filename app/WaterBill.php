@@ -17,12 +17,22 @@ class WaterBill extends Model
     protected $fillable = [
         'customer_id', 'units', 'amount', 'name',
     ];
-    
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function customer(){
         return $this->belongsTo(Customer::class);
     }
 
     public function meter(){
         return $this->belongsTo(Meter::class, 'customer_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function control(){
+        return $this->hasOne(ControlNumber::class, 'id');
     }
 }
