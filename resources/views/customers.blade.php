@@ -1,5 +1,53 @@
 @include('constants.headerAndSide')
+<style>
+.button {
+  border-radius: 15px;
+  background-color: #6C757D;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 10px;
+  padding: 5px;
+  width: 80px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0px;
+}
+.button a{
+    color: #fff;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover {
+    background-color: #0069D9;
+
+}
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+@media print {
+  table td:last-child {display:none}
+  table th:last-child {display:none}
+}
+</style>
 
 @if(session('info'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -214,9 +262,9 @@
                                                                 @endforeach
                                                             @else
                                                                 <td>-</td>
-                                                            @endif   
-                                                            <td class="center"><a href='{{ url("/view/{$customers -> id}") }}'><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></td>
-
+                                                            @endif 
+                                                            <td><a href='{{ url("/view/{$customers -> id}") }}'><button class="button"><span>Bill Trend</span></button></a> </td>  
+                                                            <!-- <td class="center"><a href='{{ url("/view/{$customers -> id}") }}'><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></!-->
                                                         </tr>
                                                     @endforeach
                                                 @endif    
