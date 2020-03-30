@@ -192,7 +192,7 @@
                                                             <td class="sorting_1">{{( $count )}}</td>
                                                             <td>{{( $customers -> name )}}</td>
                                                             <td>{{( $customers -> street )}}</td>
-                                                            @if(count($customers->meter) > 0 )
+                                                            @if(count(($customers->meter)->toArray()) > 0 )
                                                                 <td>{{( $customers->meter -> meter_no )}}</td>
                                                             @else
                                                                 <td>-</td>
