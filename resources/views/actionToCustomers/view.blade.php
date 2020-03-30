@@ -54,12 +54,12 @@
         <h1 class="mt-4">Customer <em>{{( $view -> name)}}'s</em> Bill Information</h1>
 
         <!-- Author -->
-        <p class="lead">
+        <p class="lead pull-right">
           by
           <a href="#">MORUWASA Billing Department</a>
         </p>
 
-        <hr>
+       
 
         <!-- Date/Time -->
         <p>Updated on <?php echo date('d, M-m/Y h:i:s A') ?></p>
