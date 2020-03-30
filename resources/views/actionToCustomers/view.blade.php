@@ -17,17 +17,38 @@
 
         </div>
     </div>
+    @if(session('info'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{session('info')}}.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    @endif
+    @if ($errors->any()) 
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    @endif
+    
     <div class="row">
         <div class="col-lg-2">
             <h1 class="my-4">Actions</h1>
             <div class="list-group">
-            <a href="#" class="list-group-item active">View trend</a>
-            <a href="#" class="list-group-item">update details</a>
-            <a href="#" class="list-group-item" style="color: red;">Delete Customer<i class="fa fa-times"></i></a>
+            <a href="#" id="view" class="list-group-item active">View trend</a>
+            <a href="#" id="update" class="list-group-item">update details</a>
+            <a href="#" id="delete" class="list-group-item" style="color: red;">Delete Customer<i class="fa fa-times"></i></a>
         </div>
       </div>
       <!-- Post Content Column -->
-      <div class="col-lg-7">
+      <div class="col-lg-7" id="forView">
 
         <!-- Title -->
         <h1 class="mt-4">Customer <em>{{( $view -> name)}}'s</em> Bill Information</h1>
@@ -48,7 +69,7 @@
         <!-- Preview chart -->
         <div class="card card-primary card-outline">
                 <div class="card-header py-3">
-                    <h5 class="m-0 font-weight-bold text-primary">Monthly consumptions trend</h5>
+                    <h4 class="m-0 font-weight-bold text-primary">Monthly consuption trend</h4>
                 </div>
                 <div class="card-body">
                     <canvas id="myChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
@@ -107,13 +128,134 @@
         </div>
       </div>
 
+      <div class="col-lg-7" id="forUpdate" style="display:none">
+      
+        <!-- Title -->
+        <h1 class="mt-4">Customer <em>{{( $view -> name)}}'s</em> Bill Information</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">MORUWASA Billing Department</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Updated on <?php echo date('d, M-m/Y h:i:s A') ?></p>
+
+        <hr>
+
+        <form method="POST" action="{{ url('/updateCustomer',array($view->id)) }}">
+        {{csrf_field()}}
+        
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" class="form-control" id="colFormLabel" value="<?php echo $view -> name; ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Meter.No</label>
+            <div class="col-sm-10">
+              <select name="meter_no" id="colFormLabel" class="form-control @error('meter_no') is-invalid @enderror" id="inputmeter" value="{{ old('meter_no') }}">
+                <option value="<?php echo $view -> meter -> meter_no; ?>" selected>{{( $view -> meter -> meter_no )}}</option>
+              @if(count($meter->toArray()) > 0)
+                  @foreach($meter -> all() as $meter)
+                      <option>{{($meter-> meter_no)}}</option>
+                  @endforeach
+              @else
+                  <option value="" >No free meter available</option> 
+              @endif           
+            </select>
+            @error('meter_no')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Phone</label>
+            <div class="col-sm-10">
+              <input name="phone" id="colFormLabel" type="tel" value="<?php echo $view -> phone; ?>" class="form-control @error('phone') is-invalid @enderror"
+                      id="phone" value="{{ old('phone') }}">
+              
+              @error('phone')
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">category</label>
+            <div class="col-sm-10">
+              <select name="category" id="colFormLabel" class="form-control @error('category') is-invalid @enderror" value="{{ old('category') }}">
+                <option value="<?php echo $view -> category; ?>" selected>{{( $view->category)}}</option>
+                <option value="domestic">Domestic</option>
+                <option value="industry">Industry</option>
+                <option value="institution">Institution</option>
+                <option value="commercial">Commercial</option>
+                <option value="tank">Tank</option>
+              </select>
+
+              @error('category')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror 
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-10">
+              <select name="gender" class="form-control" id="colFormLabel" placeholder="col-form-label">
+                <option value="<?php echo $view -> gender; ?>"> {{( $view->gender)}}</option>
+                <option value="m"> M </option>
+                <option value="f"> F </option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Street</label>
+            <div class="col-sm-10">
+              <select name="street" id="colFormLabel" class="form-control @error('street') is-invalid @enderror"
+                      id="inputStreet" value="{{ old('street') }}">
+                  <option value="<?php echo $view -> street; ?>">{{( $view->street)}}</option>
+                  <option value="Mindu">Mindu</option>
+                  <option value="Sabasaba">Sabasaba</option>
+                  <option value="Mazimbu">Mazimbu</option>
+                  <option value="Bigwa">Bigwa</option>
+                  <option value="Boma">Boma</option>
+                  <option value="Kihonda">Kihonda</option>
+                  <option value="Mbuyuni">Mbuyuni</option>
+                  <option value="Msanvu">Msanvu</option>
+                  <option value="Mzinga">Mzinga</option>
+
+              </select>
+      @error('street')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror 
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <input type="submit" class="btn btn-primary" value="update">
+            </div>
+          </div>
+        </form>
+      </div>
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
 
-        <!-- Categories Widget -->
+        <!-- Personal Details Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
+          <h5 class="card-header">Personal Details</h5>
           <div class="card-body">
             <div class="row">
               <div class="col-lg-5">
@@ -214,3 +356,20 @@
 
     </script>
     <script src="{{url('js/plugins/chartJs/create-charts3.js')}}"></script>
+
+<script>
+$(document).ready(function(){
+  $("#update").click(function(){
+    $("#forView").hide();
+    $("#forUpdate").show();
+    $("#update").addClass("active");
+    $("#view").removeClass("active");
+  });
+  $("#view").click(function(){
+    $("#forView").show();
+    $("#forUpdate").hide();
+    $("#view").addClass("active");
+    $("#update").removeClass("active");
+  });
+});
+</script>
