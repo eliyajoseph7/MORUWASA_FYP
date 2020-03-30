@@ -40,4 +40,11 @@ class UpdateCustomerController extends Controller
 
             return redirect ('view/'.$id)->with('info', 'customer details updated successfully');
     }
+
+    public function delete($id){
+        Customer::where('id' , $id)
+        ->delete();
+         return redirect('customers')->with('info','customer deleted successfully');
+        //  return ($id);
+      }
 }
