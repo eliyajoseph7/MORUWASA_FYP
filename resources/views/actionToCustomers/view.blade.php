@@ -44,7 +44,7 @@
             <div class="list-group">
             <a href="#" id="view" class="list-group-item active">View trend</a>
             <a href="#" id="update" class="list-group-item">update details</a>
-            <a href="#" id="delete" class="list-group-item" style="color: red;">Delete Customer<i class="fa fa-times"></i></a>
+            <a href="#myModal" class="list-group-item" data-toggle="modal" style="color: red;">Delete Customer<i class="fa fa-times"></i></a>
         </div>
       </div>
       <!-- Post Content Column -->
@@ -248,6 +248,28 @@
             </div>
           </div>
         </form>
+      </div>
+
+      <!-- Modal HTML -->
+      <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="icon-box">
+                <i class="material-icons">&#xE5CD;</i>
+              </div>				
+              <h4 class="modal-title">Are you sure?</h4>	
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Do you really want to delete {{( $view->name)}} records? <em style="color: red;">This action is irreversible.</em></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+              <a href='{{ url("/delete/{$view -> id}") }}' type="submit" class="btn btn-danger center" style="color: #fff;">Delete<span class="material-icons">delete_forever</span></a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Sidebar Widgets Column -->
