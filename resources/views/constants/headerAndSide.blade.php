@@ -18,6 +18,8 @@
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet"> -->
     
@@ -33,6 +35,8 @@
 
     <link href="{{ url('css/animate.css') }}" rel="stylesheet">
     <link href="{{ url('css/style.css')}} " rel="stylesheet">
+    <link href="{{ url('css/htmlModal.css')}} " rel="stylesheet">
+
     {!! Charts::assets() !!}
 
 <style>
