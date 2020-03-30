@@ -264,7 +264,6 @@
                                                                 <td>-</td>
                                                             @endif 
                                                             <td><a href='{{ url("/view/{$customers -> id}") }}'><button class="button"><span>Bill Trend</span></button></a> </td>  
-                                                            <!-- <td class="center"><a href='{{ url("/view/{$customers -> id}") }}'><span data-toggle="tooltip" data-placement="left" title="view bills trend"data-toggle="tooltip" data-placement="left" title="Tooltip on left"><i class="fa fa-line-chart"></i></span></a></!-->
                                                         </tr>
                                                     @endforeach
                                                 @endif    
