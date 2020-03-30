@@ -32,11 +32,15 @@ class UpdateCustomerController extends Controller
             $inputMeter = $request -> input('meter_no');// capturing the entered meter number
             $meter = new Meter;
             $meter = Meter::where('customer_id', $id)->first();
-            
+            $usedMeter = Meter::where('customer_id', $id)->first();
+
             $meter -> meter_no = $inputMeter;
             $meter->save();
 
-            $meter = Meter::where('meter_no', $inputMeter)->where('customer_id', null)->delete();
+            $freemeter = Meter::where('meter_no', $inputMeter)->where('customer_id', null)->first();
+            $freemeter -> meter_no = $usedMeter -> meter_no;
+            $freemeter->save();
+
 
             return redirect ('view/'.$id)->with('info', 'customer details updated successfully');
     }
