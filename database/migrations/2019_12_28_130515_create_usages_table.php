@@ -15,7 +15,7 @@ class CreateUsagesTable extends Migration
     {
         Schema::create('usages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('customer_id')->unsigned();
+            $table->integer('customer_id')->unsigned()->onDelete('set null');
             $table->timestamps();
         });
     }

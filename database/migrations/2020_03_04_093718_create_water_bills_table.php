@@ -19,7 +19,7 @@ class CreateWaterBillsTable extends Migration
             $table->string('units');
             $table->string('amount');
             $table->timestamps();
-            $table->integer('customer_id')->unsigned();
+            $table->integer('customer_id')->unsigned()->onDelete('set null');
         });
     }
 
