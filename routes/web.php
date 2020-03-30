@@ -87,4 +87,4 @@ Route::get('view/trends/{id}',[
 
 Route::get('/view/{id}', 'actions\ActionToCustomerController@view');
 Route::post('/updateCustomer/{id}', 'actions\UpdateCustomerController@update');
-
+Route::get('/delete/{id}', 'actions\UpdateCustomerController@delete');
