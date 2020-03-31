@@ -21,29 +21,39 @@ class UpdateCustomerController extends Controller
             'meter_no' => 'required',
         ]);
 
-            $edit->name = $request->input('name');
-            $edit->phone = $request->input('phone');
-            $edit->category = $request->input('category');
-            $edit->gender = $request->input('gender');
-            $edit->street = $request->input('street');
+        $phone_check = Customer::where('id', '!=', $id)->where('phone', Input::get('phone'));
+        if($phone_check->exists()){
+            return redirect ('view/'.$id)->with('err', 'The phone number entered belongs to another customer!');
+
+        }else{
+                $edit->name = $request->input('name');
+                $edit->phone = $request->input('phone');
+                $edit->category = $request->input('category');
+                $edit->gender = $request->input('gender');
+                $edit->street = $request->input('street');
+                
+                $edit->save();
+
+                $inputMeter = $request -> input('meter_no');// capturing the entered meter number
+                $meter = new Meter;
+                $meter = Meter::where('customer_id', $id)->first();
+                $usedMeter = Meter::where('customer_id', $id)->first();
+
+                $meter -> meter_no = $inputMeter;
+                $meter->save();
+
+                $freemeter = Meter::where('meter_no', $inputMeter)->where('customer_id', null)->first();
+                if(!is_null($freemeter)){
+                    $freemeter -> meter_no = $usedMeter -> meter_no;
+                    $freemeter->save();
+                }
+                
+
+
+                return redirect ('view/'.$id)->with('info', 'customer details updated successfully');
+            }
+        }
             
-            $edit->save();
-
-            $inputMeter = $request -> input('meter_no');// capturing the entered meter number
-            $meter = new Meter;
-            $meter = Meter::where('customer_id', $id)->first();
-            $usedMeter = Meter::where('customer_id', $id)->first();
-
-            $meter -> meter_no = $inputMeter;
-            $meter->save();
-
-            $freemeter = Meter::where('meter_no', $inputMeter)->where('customer_id', null)->first();
-            $freemeter -> meter_no = $usedMeter -> meter_no;
-            $freemeter->save();
-
-
-            return redirect ('view/'.$id)->with('info', 'customer details updated successfully');
-    }
 
     public function delete($id){
         Customer::where('id' , $id)
