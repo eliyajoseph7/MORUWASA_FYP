@@ -20,6 +20,7 @@ Route::get('/setup', function () {
     return view('staff/registerStaff');
 });
 Route::get('/invoices', 'Invoice\InvoiceController@invoice');
+Route::get('/generate', 'Invoice\BillsGenerationController@generateBill');
 
 // Route::get('/domestic', function() {
 //     return view('customerType/domestic');
