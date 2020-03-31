@@ -81,7 +81,7 @@
             <div class="card card-primary card-outline mb-4">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Consuption Overview in all months</h6>
+                <h4 class="m-0 font-weight-bold text-primary">Consuption Overview in all months</h4>
               </div>
               <!-- Card Body -->
               <div class="card-body">
@@ -95,7 +95,7 @@
             <div class="card card-primary card-outline mb-4">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Total customers in each category</h6>
+                <h4 class="m-0 font-weight-bold text-primary">Total customers in each category</h4>
               </div>
               <!-- Card Body -->
               <div class="card-body">
@@ -114,7 +114,7 @@
             <!-- Project Card Example -->
             <div class="card card-primary card-outline mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Monthly consuption in each customer's categories</h6>
+                <h4 class="m-0 font-weight-bold text-primary">Monthly consuption in each customer's categories</h4>
               </div>
               <div class="card-body">
                 <canvas id="myChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
@@ -187,7 +187,9 @@
       </div>
 
 </div>
+<div>
 
+</div>
 
 </body>
 </html>
@@ -350,4 +352,18 @@
   setInterval(() => {
     updateChart();
   }, 1000);
+</script>
+
+<script>
+
+var timer = setTimeout(function() { 
+ $.ajax({ 
+ type:'GET', 
+ url : 'generate', 
+ success: function(html) { 
+      //  alert("Success"); 
+     } 
+   }); 
+ }, 500);
+
 </script>
