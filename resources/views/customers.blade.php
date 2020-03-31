@@ -1,7 +1,7 @@
 @include('constants.headerAndSide')
 <style>
 .button {
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #6C757D;
   border: none;
   color: #FFFFFF;
