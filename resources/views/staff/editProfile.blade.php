@@ -9,6 +9,23 @@
      });
  });
 </script>
+<div class="container-fluid">
+    <div class="row wrapper border-bottom white-bg page-heading m-auto mb-3">
+        <div class="col-lg-10">
+            <h2>User Profile</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ url('/home') }}">Home</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Your Profile</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
 <!-- success alert -->
 @if(session('info'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -40,7 +57,7 @@
     @endif
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container-fluid">
+
 <div class="row flex-lg-nowrap">
   
   <div class="col">
@@ -52,7 +69,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-auto mb-3">
                     <div class="mx-auto" style="width: 140px;">
-                        <div class="d-flex justify-content-center align-items-center rounded" style="height: 130px; background-color: rgb(233, 236, 239);">
+                        <div class="d-flex justify-content-center align-items-center rounded" style="height: 110px; background-color: rgb(233, 236, 239);">
                         <span id="img" style="color: rgb(166, 168, 170); font: bold 8pt Arial;"><img src="{{ url('uploads/staff/'.Auth::user()->image) }}" style="width: 138px; height: 110px;"></span>
                         </div>
                     </div>
