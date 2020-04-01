@@ -89,3 +89,7 @@ Route::get('view/trends/{id}',[
 Route::get('/view/{id}', 'actions\ActionToCustomerController@view');
 Route::post('/updateCustomer/{id}', 'actions\UpdateCustomerController@update');
 Route::get('/delete/{id}', 'actions\UpdateCustomerController@delete');
+
+// editing user's profile
+Route::get('/profile/{id}', 'actions\UpdateStaffProfileController@edit');
+Route::post('/updateProfile/{id}', 'actions\UpdateStaffProfileController@update');
