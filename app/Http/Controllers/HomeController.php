@@ -29,7 +29,7 @@ class HomeController extends Controller
         $customers = Customer::all();
         $count = count($customers);
 
-         $amount = WaterBill::whereMonth('created_at', date('03'))->get()->sum('amount');
+         $amount = WaterBill::whereMonth('created_at', date('m', strtotime('-1 month')))->get()->sum('amount');
     return view('billshome',compact('count', 'amount'));
     }
 
