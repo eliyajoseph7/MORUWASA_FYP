@@ -9,6 +9,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- this is to avoid page expired error -->
+
 
     <title> MORUWASA BILLING</title>
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatable/bootstrap.css') }}">
