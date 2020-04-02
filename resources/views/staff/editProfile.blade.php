@@ -58,7 +58,7 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="row flex-lg-nowrap">
+<div class="row flex-lg-nowrap mt-3">
   
   <div class="col">
     <div class="row">
