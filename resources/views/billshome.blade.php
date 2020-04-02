@@ -15,14 +15,14 @@
                       <div class="ibox ">
                           <div class="ibox-title">
                               <div class="ibox-tools">
-                                  <span class="label label-success float-right">Monthly</span>
+                                  <span class="label label-success float-right">Last Month</span>
                               </div>
                               <h5>Income</h5>
                           </div>
                           <div class="ibox-content">
                               <h1 class="no-margins num">{{( $amount )}}</h1>
                               <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
-                              <small>Total income</small>
+                              <small>Total income in <?php echo date('M-Y', strtotime("-1 month")) ?></small>
                           </div>
                       </div>
                   </div>
