@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Charts;
 use App\Customer;
 use App\Payment;
+use App\WaterBill;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,20 +29,8 @@ class HomeController extends Controller
         $customers = Customer::all();
         $count = count($customers);
 
-        $chart = Charts::create('bar', 'highcharts')
-                        ->title('Water Consuption')
-                        ->labels(['Jan', 'Feb', 'March'])
-                        ->values([10000,7000,8000])
-                        ->elementLabel('water consumed(litres)')
-                        ->dimensions(0,400);
-
-        $chart1 = Charts::database($customers,'donut', 'google')
-                        ->title(' customer category')
-                        ->width( 0 )
-                        ->groupBy('category')
-                        ->colors(['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00f0ff', '#80BAEB'])
-                        ->responsive(true);
-    return view('billshome',['chart' => $chart,'count' => $count, 'chart1' => $chart1]);
+         $amount = WaterBill::whereMonth('created_at', date('03'))->get()->sum('amount');
+    return view('billshome',compact('count', 'amount'));
     }
 
 }

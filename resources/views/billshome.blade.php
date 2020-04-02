@@ -1,5 +1,6 @@
 @include('constants/headerAndSide')
-
+<script src="{{ url('js/waypoints/4.0.1/jquery.waypoints.js') }}"></script>
+<script src="{{ url('js/Counter-Up/1.0.0/jquery.counterup.js') }}"></script>
 <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -19,7 +20,7 @@
                               <h5>Income</h5>
                           </div>
                           <div class="ibox-content">
-                              <h1 class="no-margins">40 886,200</h1>
+                              <h1 class="no-margins num">{{( $amount )}}</h1>
                               <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
                               <small>Total income</small>
                           </div>
@@ -34,7 +35,7 @@
                               <h5>Customers</h5>
                           </div>
                           <div class="ibox-content">
-                              <h1 class="no-margins">{{( $count )}}</h1>
+                              <h1 class="no-margins num">{{( $count )}}</h1>
                               <!-- <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div> -->
                               <small>Total customers</small>
                           </div>
@@ -44,12 +45,12 @@
                       <div class="ibox ">
                           <div class="ibox-title">
                               <div class="ibox-tools">
-                                  <span class="label label-primary float-right">Today</span>
+                                  <span class="label label-primary float-right">currently</span>
                               </div>
                               <h5>suspended</h5>
                           </div>
                           <div class="ibox-content">
-                              <h1 class="no-margins">106</h1>
+                              <h1 class="no-margins num">106</h1>
                               <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div> -->
                               <small>suspended customers</small>
                           </div>
@@ -367,3 +368,17 @@ var timer = setTimeout(function() {
  }, 500);
 
 </script>
+
+<!-- script and style for count-up -->
+<script type="text/javascript">
+    $(".num").counterUp({delay:10,time:1000});
+  </script>
+
+<style>
+.num {
+    font-size: 40px;
+    margin: 20px 0;
+    color: gold;
+    font-family: "montserrat", sans-serif;
+}
+</style>
