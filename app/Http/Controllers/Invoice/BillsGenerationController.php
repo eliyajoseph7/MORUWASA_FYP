@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Invoice;
 
+use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,7 @@ class BillsGenerationController extends Controller
 {
     //
     public function generateBill(){
-        if(date('d') == 30){
+        if(date('d') == 28){
             $data = DB::table('customers')
                         ->join('usages', 'customers.id', '=', 'usages.customer_id')
                         ->join('consuptions', 'usages.id', '=', 'consuptions.id')
@@ -67,6 +68,37 @@ class BillsGenerationController extends Controller
     
                 }
                     DB::table('control_numbers')->insert($inserts);
+
+                    // For sending bill messages to customers
+                    $billMesage = WaterBill::join('customers', 'water_bills.customer_id', '=', 'customers.id')
+                                            ->join('control_numbers', 'water_bills.id', '=', 'control_numbers.id')
+                                            ->whereMonth('water_bills.created_at', date('m'))
+                                            ->where('phone', '255620563040')
+                                            ->get();
+
+
+                        $message = [];
+                        foreach($billMesage as $sms){
+                        $amount = $sms->amount / 100;
+                        $total = $sms->amount + $amount;
+                        $message [] = ['Name' => $sms->name,
+                                        'Units' => $sms->units,
+                                        'amount' => $sms->amount,
+                                        'Ewura' => '1%',
+                                        'Total amount' => $total,
+                                        'control number' => $sms->control_no
+                                    ];
+                                    
+                        $message =  str_replace(['"','{','}','[',']'], " ", json_encode($message));  
+
+                            Nexmo::message()->send([
+                            'to'   => $sms->phone,
+                            'from' => '0620563040',
+                            'text' => $message
+                            ]);
+                        }                        
+                        
+
             }
         
         } 
