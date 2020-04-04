@@ -75,7 +75,7 @@ class BillsGenerationController extends Controller
                                             ->whereMonth('water_bills.created_at', date('m'))
                                             ->where('phone', '255620563040')
                                             ->get();
-return $billMessage;
+
                         $message = [];
                         foreach($billMessage as $sms){
                         $amount = $sms->amount / 100;
@@ -89,7 +89,7 @@ return $billMessage;
                                     ];
                                     
                         $message =  str_replace(['"','{','}','[',']'], " ", json_encode($message));  
-
+return $sms->phone;
                             // Nexmo::message()->send([
                             // 'to'   => $sms->phone,
                             // 'from' => '0620563040',
