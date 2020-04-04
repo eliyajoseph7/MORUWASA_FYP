@@ -134,21 +134,18 @@
             <!-- Illustrations -->
             <div class="card card-primary card-outline mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                <h4 class="m-0 font-weight-bold text-primary">Meter Information</h4>
               </div>
               <div class="card-body">
-                <div class="text-center">
-                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
-                </div>
-                <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw →</a>
+                <p class="lead text-break">The total registered meters are <b>{{( $count_meter )}}</b>, and the free meters available to be assigned to the new customers are <b>{{( $free_meter )}}</b> meters!</p>
+                <a target="_blank" rel="nofollow" href="{{ url('/meter') }}">More information about meters are found here →</a>
               </div>
             </div>
 
             <!-- Approach -->
             <div class="card card-primary card-outline mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                <h4 class="m-0 font-weight-bold text-primary">Development Approach</h4>
               </div>
               <div class="card-body">
                 <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
