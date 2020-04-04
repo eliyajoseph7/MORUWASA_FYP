@@ -357,6 +357,7 @@
 
 <script>
 
+// script for generating bills
 var timer = setTimeout(function() { 
  $.ajax({ 
  type:'GET', 
@@ -365,7 +366,7 @@ var timer = setTimeout(function() {
       //  alert("Success"); 
      } 
    }); 
- }, 500);
+ }, 5000); // 5 seconds
 
 </script>
 
