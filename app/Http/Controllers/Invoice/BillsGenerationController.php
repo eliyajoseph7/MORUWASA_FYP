@@ -23,51 +23,51 @@ class BillsGenerationController extends Controller
     
             $check = new WaterBill;
     
-            if($check::whereMonth('created_at', date('m'))->exists()){
+            // if($check::whereMonth('created_at', date('m'))->exists()){
     
-            }else{
-                    $inserts = [];
-                foreach($data as $data){
-                    if($data->category == 'domestic'){
-                        $amount = $data -> units * 1600;
-                    }elseif($data->category == 'industry'){
-                        $amount = $data -> units * 2900;
-                    }elseif($data->category == 'commercial'){
-                        $amount = $data -> units * 2300;
-                    }elseif($data->category == 'tank'){
-                        $amount = $data -> units * 1600;
-                    }elseif($data->category == 'kiosk'){
-                        $amount = $data -> units * 1500;
-                    }else{
-                        $amount = $data -> units * 1900;
-                    }
+            // }else{
+                    // $inserts = [];
+                // foreach($data as $data){
+                //     if($data->category == 'domestic'){
+                //         $amount = $data -> units * 1600;
+                //     }elseif($data->category == 'industry'){
+                //         $amount = $data -> units * 2900;
+                //     }elseif($data->category == 'commercial'){
+                //         $amount = $data -> units * 2300;
+                //     }elseif($data->category == 'tank'){
+                //         $amount = $data -> units * 1600;
+                //     }elseif($data->category == 'kiosk'){
+                //         $amount = $data -> units * 1500;
+                //     }else{
+                //         $amount = $data -> units * 1900;
+                //     }
                     
-                $inserts[] = ['customer_id' => $data->id,
-                                'units' => $data->units,
-                                'name' => $data->name,
-                                'amount' => $amount,
-                                'created_at' => now()];
-                }  
-                DB::table('water_bills')->insert($inserts);
+                // $inserts[] = ['customer_id' => $data->id,
+                //                 'units' => $data->units,
+                //                 'name' => $data->name,
+                //                 'amount' => $amount,
+                //                 'created_at' => now()];
+                // }  
+                // DB::table('water_bills')->insert($inserts);
     
-                $control = new ControlNumber();
-                $inserts = [];
-                $bill = WaterBill::whereMonth('created_at', date('m'))->get();
+                // $control = new ControlNumber();
+                // $inserts = [];
+                // $bill = WaterBill::whereMonth('created_at', date('m'))->get();
     
-                foreach($bill as $bill){
-                $result = '';
+                // foreach($bill as $bill){
+                // $result = '';
     
-                for($i = 0; $i < 12; $i++) {
-                    $result .= mt_rand(0, 9);
+                // for($i = 0; $i < 12; $i++) {
+                //     $result .= mt_rand(0, 9);
     
     
-                }
-                $inserts[] = ['control_no' => $result,
-                              'created_at' => now()
-                ];
+                // }
+                // $inserts[] = ['control_no' => $result,
+                //               'created_at' => now()
+                // ];
     
-                }
-                    DB::table('control_numbers')->insert($inserts);
+                // }
+                //     DB::table('control_numbers')->insert($inserts);
 
                     // For sending bill messages to customers
                     $billMessage = WaterBill::join('customers', 'water_bills.customer_id', '=', 'customers.id')
@@ -75,7 +75,7 @@ class BillsGenerationController extends Controller
                                             ->whereMonth('water_bills.created_at', date('m'))
                                             ->where('phone', '255620563040')
                                             ->get();
-
+return $billMessage;
                         $message = [];
                         foreach($billMessage as $sms){
                         $amount = $sms->amount / 100;
@@ -90,11 +90,11 @@ class BillsGenerationController extends Controller
                                     
                         $message =  str_replace(['"','{','}','[',']'], " ", json_encode($message));  
 
-                            Nexmo::message()->send([
-                            'to'   => $sms->phone,
-                            'from' => '0620563040',
-                            'text' => $message
-                            ]);
+                            // Nexmo::message()->send([
+                            // 'to'   => $sms->phone,
+                            // 'from' => '0620563040',
+                            // 'text' => $message
+                            // ]);
                         }                        
                         
 
@@ -102,4 +102,4 @@ class BillsGenerationController extends Controller
         
         } 
     }
-}
+// }
