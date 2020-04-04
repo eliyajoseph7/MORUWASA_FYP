@@ -89,7 +89,7 @@ class BillsGenerationController extends Controller
                                     ];
                                     
                         $message =  str_replace(['"','{','}','[',']'], " ", json_encode($message));  
-return $sms->phone;
+return $message;
                             // Nexmo::message()->send([
                             // 'to'   => $sms->phone,
                             // 'from' => '0620563040',
