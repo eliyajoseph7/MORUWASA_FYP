@@ -105,7 +105,7 @@
     <div class="form-group col-md-6">
       <label for="phone">Phone</label>
       <input name="phone" type="tel" class="form-control @error('phone') is-invalid @enderror"
-              id="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="+255123456789">
+              id="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="255123456789">
     
       @error('phone')
           <span class="invalid-feedback" role="alert">

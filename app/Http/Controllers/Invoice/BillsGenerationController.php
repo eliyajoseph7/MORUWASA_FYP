@@ -70,15 +70,14 @@ class BillsGenerationController extends Controller
                     DB::table('control_numbers')->insert($inserts);
 
                     // For sending bill messages to customers
-                    $billMesage = WaterBill::join('customers', 'water_bills.customer_id', '=', 'customers.id')
+                    $billMessage = WaterBill::join('customers', 'water_bills.customer_id', '=', 'customers.id')
                                             ->join('control_numbers', 'water_bills.id', '=', 'control_numbers.id')
                                             ->whereMonth('water_bills.created_at', date('m'))
-                                            ->where('phone', '+255620563040')
+                                            ->where('phone', '255620563040')
                                             ->get();
 
-
                         $message = [];
-                        foreach($billMesage as $sms){
+                        foreach($billMessage as $sms){
                         $amount = $sms->amount / 100;
                         $total = $sms->amount + $amount;
                         $message [] = ['Name' => $sms->name,
