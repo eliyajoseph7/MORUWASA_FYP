@@ -12,7 +12,7 @@ class BillsGenerationController extends Controller
 {
     //
     public function generateBill(){
-        if(date('d') == 28){
+        if(date('d') == 04){
             $data = DB::table('customers')
                         ->join('usages', 'customers.id', '=', 'usages.customer_id')
                         ->join('consuptions', 'usages.id', '=', 'consuptions.id')
@@ -73,7 +73,7 @@ class BillsGenerationController extends Controller
                     $billMesage = WaterBill::join('customers', 'water_bills.customer_id', '=', 'customers.id')
                                             ->join('control_numbers', 'water_bills.id', '=', 'control_numbers.id')
                                             ->whereMonth('water_bills.created_at', date('m'))
-                                            ->where('phone', '255620563040')
+                                            ->where('phone', '+255620563040')
                                             ->get();
 
 
