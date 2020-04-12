@@ -149,7 +149,7 @@
               </div>
               <div class="card-body">
                 <p>This part is not yet implemented</p>
-                <p class="mb-0">When its done, the crucial information about bills payments will be displayed herw!.</p>
+                <p class="lead mb-0">When its done, the crucial information about bills payments will be displayed here!.</p>
               </div>
             </div>
 
