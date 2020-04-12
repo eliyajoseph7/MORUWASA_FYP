@@ -112,6 +112,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266px;">Meter no</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266px;">Customer</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 239px;">Meter Type</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 239px;">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -137,6 +138,7 @@
                                                                 <td>-</td>
                                                             @endif
                                                             <td class="center">{{( $meter -> type )}}</td>
+                                                            <td class="center"><a href='{{url("/editMeter/{$meter->id}")}}' class="label btn-outline-primary">Edit</a></td>
                                                             
                                                         </tr>
                                                     @endforeach
@@ -148,6 +150,7 @@
                                             <th rowspan="1" colspan="1">Meter no</th>
                                             <th rowspan="1" colspan="1">Customer</th>
                                             <th rowspan="1" colspan="1">Meter Type</th>
+                                            <th rowspan="1" colspan="1">Action</th>
                                         </tr>
                                     </tfoot>
                                 </table>
