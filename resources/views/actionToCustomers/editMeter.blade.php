@@ -105,7 +105,11 @@
                                                         <div class="col">
                                                             <div class="form-group">
                                                                 <label>Meter Type</label>
-                                                                <input id="type" type="text" class="form-control" name="type" value=<?php echo  $meter->type; ?>>
+                                                                <select id="type" type="text" class="form-control" name="type">
+                                                                    <option value= {{( $meter->type )}} selecter</option><?php echo  $meter->type; ?></option>
+                                                                    <option value="prepaid">prepaid</option>
+                                                                    <option value="postpaid">postpaid</option>
+                                                                </select>
                                                                 <div class="custom-control-input  @error('type') is-invalid @enderror col-md-6" value="{{ old('type') }}"></div>
 
                                                             @error('type')
