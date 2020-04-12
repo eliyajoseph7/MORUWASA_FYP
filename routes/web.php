@@ -93,3 +93,7 @@ Route::get('/delete/{id}', 'actions\UpdateCustomerController@delete');
 // editing user's profile
 Route::get('/profile/{id}', 'actions\UpdateStaffProfileController@edit');
 Route::post('/updateProfile/{id}', 'actions\UpdateStaffProfileController@update');
+
+// Editing meter
+Route::get('/editMeter/{id}', 'actions\EditMeterController@meter');
+Route::post('/updateMeter/{id}', 'actions\EditMeterController@updateMeter');
