@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                                         <div class="text-center text-sm-left mb-2 mb-sm-0">
-                                        @if(count(($meter->customer)) > 0)
+                                        @if($meter->customer != null)
                                             <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Customer Name: <?php echo $meter ->customer->name; ?></h4>
                                             <p class="mb-0">Street: <?php echo $meter->customer->street; ?></p>
                                         @else
@@ -70,7 +70,7 @@
                                             
                                         </div>
                                         <div class="text-center text-sm-right">
-                                        @if(count(($meter->customer)) > 0)
+                                        @if($meter->customer != null)
                                             <span class="badge badge-secondary">Customer Category: <?php echo $meter->customer->category; ?></span>
                                         @endif    
                                             <div class="text-muted"><small>Registered <?php echo $meter->created_at->format('d M Y'); ?></small></div>
