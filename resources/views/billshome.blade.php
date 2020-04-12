@@ -145,11 +145,11 @@
             <!-- Approach -->
             <div class="card card-primary card-outline mb-4">
               <div class="card-header py-3">
-                <h4 class="m-0 font-weight-bold text-primary">Development Approach</h4>
+                <h4 class="m-0 font-weight-bold text-primary">Bill payment information</h4>
               </div>
               <div class="card-body">
-                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+                <p>This part is not yet implemented</p>
+                <p class="mb-0">When its done, the crucial information about bills payments will be displayed herw!.</p>
               </div>
             </div>
 
