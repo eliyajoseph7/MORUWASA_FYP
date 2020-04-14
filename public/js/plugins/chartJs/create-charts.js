@@ -11,7 +11,7 @@
         },
 
         ajaxGetConsuptionMonthlyData: function() {
-            var urlPath = 'http://' + 'desolate-shelf-21097.herokuapp.com' + '/data';
+            var urlPath = 'http://' + window.location.hostname + '/data';
             var request = $.ajax({
                 method: 'GET',
                 url: urlPath
