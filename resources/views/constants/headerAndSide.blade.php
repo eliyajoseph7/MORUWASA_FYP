@@ -342,6 +342,8 @@
 
     <!-- ChartJS-->
     <script src="{{url('js/plugins/chartJs/Chart.min.js')}}"></script>
+    <script src="{{url('js/plugins/chartJs/jquery.min.js')}}"></script>
+
 
     <!-- Toastr -->
     <script src="{{url('js/plugins/toastr/toastr.min.js')}}"></script>
