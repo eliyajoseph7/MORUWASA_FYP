@@ -89,9 +89,9 @@
                                                             $amount_tank = $usages -> units * 1600;
                                                             $amount_institution = $usages -> units * 1900;
                                                         ?>
-                                                        
+                                                        @if($usages->customer != null)
                                                         <tr class="gradeA odd" role="row">
-                                                            @if($usages->customer != null)
+                                                            
                                                             <td class="sorting_1">{{( $count )}}</td>
                                                                 @if(count(($usages->customer)->toArray()) > 0 )
                                                                     <td>{{( $usages->customer -> name )}}</td>
@@ -109,9 +109,9 @@
                                                                 @else
                                                                 <td>{{( $amount_institution )}}</td>
                                                                 @endif
-                                                            
-                                                            @endif
-                                                        </tr>
+                                                        </tr>    
+                                                        @endif
+                                                        
                                                     @endforeach
                                                 @endif    
                                     </tbody>
