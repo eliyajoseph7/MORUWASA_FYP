@@ -109,8 +109,7 @@
                                                                 @else
                                                                 <td>{{( $amount_institution )}}</td>
                                                                 @endif
-                                                            @else
-                                                                <td>-</td>
+                                                            
                                                             @endif
                                                         </tr>
                                                     @endforeach
