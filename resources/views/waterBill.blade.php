@@ -92,9 +92,11 @@
                                                         
                                                         <tr class="gradeA odd" role="row">
                                                             <td class="sorting_1">{{( $count )}}</td>
-                                                            @if(count(($usages->customer)->toArray()) > 0 )
-                                                            <td>{{( $usages->customer -> name )}}</td>
-                                                            <td>{{( $usages->customer -> category )}}</td>
+                                                            @if($usages->customer != null)
+                                                                @if(count(($usages->customer)->toArray()) > 0 )
+                                                                    <td>{{( $usages->customer -> name )}}</td>
+                                                                    <td>{{( $usages->customer -> category )}}</td>
+                                                                @endif
                                                             @else
                                                                 <td>-</td>
                                                             @endif                                                            
