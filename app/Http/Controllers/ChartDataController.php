@@ -12,10 +12,10 @@ class ChartDataController extends Controller
         $month_array = array();
         $consuptions_dates = Consuption::select('created_at')->orderBy('created_at')->get();
         $consuptions_dates = json_decode($consuptions_dates);
-return $consuptions_dates;
+
         if (! empty($consuptions_dates)) {
             foreach ($consuptions_dates as $unformatted_date) {
-                $date = new \DateTime($unformatted_date->date);
+                $date = new \DateTime($unformatted_date->created_at);
                 $month_no = $date->format('m');
                 $month_name = $date->format('M');
                 $month_array [$month_no] = $month_name;
