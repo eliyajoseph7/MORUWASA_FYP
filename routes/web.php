@@ -49,5 +49,5 @@ Route::get('/meter', 'MeterController@meters')->name('meter');
 Route::post('/addCustomer', 'CustomerController@add');
 Route::post('/addMeter', 'MeterController@add');
 
-Route::get('/data', 'ChartDataController@getMonthlyConsuptionData');
+Route::get('/data', 'ChartDataController@getAllMonths');
 
