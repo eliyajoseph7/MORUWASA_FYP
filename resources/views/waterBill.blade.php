@@ -97,20 +97,20 @@
                                                                     <td>{{( $usages->customer -> name )}}</td>
                                                                     <td>{{( $usages->customer -> category )}}</td>
                                                                 @endif
+                                                                <td>{{( $usages -> units )}}</td>
+                                                                @if(($usages->customer -> category) == 'domestic')
+                                                                    <td>{{( $amount_domestic )}}</td>
+                                                                @elseif(($usages->customer -> category) == 'industry')
+                                                                    <td>{{( $amount_industry )}}</td>
+                                                                @elseif(($usages->customer -> category) == 'commercial')
+                                                                    <td>{{( $amount_commercial )}}</td>
+                                                                @elseif(($usages->customer -> category) == 'tank')
+                                                                    <td>{{( $amount_tank )}}</td>
+                                                                @else
+                                                                <td>{{( $amount_institution )}}</td>
+                                                                @endif
                                                             @else
                                                                 <td>-</td>
-                                                            @endif                                                            
-                                                            <td>{{( $usages -> units )}}</td>
-                                                            @if(($usages->customer -> category) == 'domestic')
-                                                                <td>{{( $amount_domestic )}}</td>
-                                                            @elseif(($usages->customer -> category) == 'industry')
-                                                                <td>{{( $amount_industry )}}</td>
-                                                            @elseif(($usages->customer -> category) == 'commercial')
-                                                                <td>{{( $amount_commercial )}}</td>
-                                                            @elseif(($usages->customer -> category) == 'tank')
-                                                                <td>{{( $amount_tank )}}</td>
-                                                            @else
-                                                            <td>{{( $amount_institution )}}</td>
                                                             @endif
                                                         </tr>
                                                     @endforeach
