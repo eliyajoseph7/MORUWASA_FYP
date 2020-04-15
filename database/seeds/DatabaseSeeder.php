@@ -12,23 +12,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        factory(App\Customer::class, 1000)->create()->each(function($customers){
+        factory(App\Customer::class, 100)->create()->each(function($customers){
             $customers->save();
             });
 
-        factory(App\Meter::class, 1000)->create()->each(function($meters){
+        factory(App\Meter::class, 100)->create()->each(function($meters){
             $meters->save();
             });
 
-        factory(App\Payment::class, 1000)->create()->each(function($payments){
+        factory(App\Payment::class, 100)->create()->each(function($payments){
             $payments->save();
             });
 
-        factory(App\Usage::class, 1000)->create()->each(function($usage){
+        factory(App\Usage::class, 100)->create()->each(function($usage){
             $usage->save();
             });
 
-        factory(App\Consuption::class, 5000)->create()->each(function($consuption){
+        factory(App\Consuption::class, 100)->create()->each(function($consuption){
             $consuption->save();
             });
     }
