@@ -98,7 +98,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                    <canvas id="myAreaChart" style="display: block; width: 133px; height: 80px;" width="133" height="80" class="chartjs-render-monitor"></canvas>
+                    <canvas id="myAreaChart" style="display: block; width: 133px; height: 60px;" width="133" height="60" class="chartjs-render-monitor"></canvas>
                   </div>
                 </div>
               </div>
