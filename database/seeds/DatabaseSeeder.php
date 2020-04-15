@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
             $payments->save();
             });
 
-        factory(App\Usage::class, 500)->create()->each(function($usage){
+        factory(App\Usage::class, 2000)->create()->each(function($usage){
             $usage->save();
             });
 
-        factory(App\Consuption::class, 500)->create()->each(function($consuption){
+        factory(App\Consuption::class, 2000)->create()->each(function($consuption){
             $consuption->save();
             });
     }
