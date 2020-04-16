@@ -60,7 +60,7 @@
                         
                     </li>
                     
-                    <li>
+                    <!-- <li>
                         <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Customers</span><span class="fa arrow"></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{ url('/domestic') }}"><i style="color:blue" class="fa fa-circle-o"></i>Domestic</a></li>
@@ -70,7 +70,7 @@
                             <li><a href="{{ url('/tank') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Tanks</a></li>
                                                         
                         </ul>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
