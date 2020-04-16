@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Chart;
 use App\Consuption;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ChartDataController extends Controller
 {
@@ -56,3 +57,4 @@ class ChartDataController extends Controller
     }
 
 }
+
