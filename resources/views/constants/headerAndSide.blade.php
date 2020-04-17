@@ -36,6 +36,12 @@
 .s-skin-1:hover{
     color: #fff;
 }
+.avatar {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
 </style>
 
 </head>
@@ -74,8 +80,8 @@
                     <li>
                         <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ url('/meter') }}"><i style="color:green" class="fa fa-circle-o"></i>Register meter</a></li>
-                            <li><a href="{{ url('/customers') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Add customer</a></li>
+                            <li><a href="{{ url('/meter') }}"><i style="color:green" class="fa fa-circle-o"></i>Meters</a></li>
+                            <li><a href="{{ url('/customers') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Customers</a></li>
                             
                             
                         </ul>
@@ -141,15 +147,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                            
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}  <span class="caret"></span> 
+                                <span><img src="{{ url('uploads/staff/'. Auth::user()->image ) }}" class="avatar"></span>{{ Auth::user()->username }}  <span class="caret"></span> 
                                  </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

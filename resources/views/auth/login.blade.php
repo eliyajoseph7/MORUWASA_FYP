@@ -104,7 +104,7 @@
                                 @csrf
                                 
                                     <div class="form-group">
-                                    <input id="email" type="email" class="input-material @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
                                         placeholder="E-Mail Address">
 
                                         @error('email')
@@ -114,7 +114,7 @@
                                          @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input id="password" type="password" class="input-material @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"
                                         placeholder="password">
 
                                         @error('password')
@@ -139,7 +139,7 @@
                                             </a>
                                         @endif
                                     </div>
-                                </form><small>Do not gave account? </small><a href="{{ route('register') }}" class="signup">Register</a>
+                                </form>
                             </div>
                         </div>
                     </div>
