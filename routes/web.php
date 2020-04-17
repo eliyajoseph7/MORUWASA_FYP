@@ -16,21 +16,25 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/domestic', function() {
-    return view('customerType/domestic');
+Route::get('/setup', function () {
+    return view('staff/registerStaff');
 });
-Route::get('/industry', function() {
-    return view('customerType/industry');
-});
-Route::get('/institution', function() {
-    return view('customerType/institution');
-});
-Route::get('/commercial', function() {
-    return view('customerType/commercial');
-});
-Route::get('/tank', function() {
-    return view('customerType/tank');
-});
+
+// Route::get('/domestic', function() {
+//     return view('customerType/domestic');
+// });
+// Route::get('/industry', function() {
+//     return view('customerType/industry');
+// });
+// Route::get('/institution', function() {
+//     return view('customerType/institution');
+// });
+// Route::get('/commercial', function() {
+//     return view('customerType/commercial');
+// });
+// Route::get('/tank', function() {
+//     return view('customerType/tank');
+// });
 // Route::get('/customer/{id}/payment', function ($id) {
      
 //     return Customer::find($id)->payments;
@@ -48,6 +52,7 @@ Route::get('/customers', 'CustomerController@index')->name('customers');
 Route::get('/meter', 'MeterController@meters')->name('meter');
 Route::post('/addCustomer', 'CustomerController@add');
 Route::post('/addMeter', 'MeterController@add');
+Route::post('/registerStaff', 'Auth\SetupController@add');
 
 Route::get('/data', 'Chart\ChartDataController@getMonthlyConsuptionData');
 
