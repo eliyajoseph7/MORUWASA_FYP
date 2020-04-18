@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Consuption;
 use App\Http\Resources\ConsuptionResource;
+use App\Http\Resources\ResourcesCollections\ConsuptionResourceCollection;
 use App\Meter;
 use App\Usage;
 
@@ -47,5 +48,10 @@ class ConsuptionController extends Controller
         }
 
         
+    }
+
+    public function index(): ConsuptionResourceCollection
+    {
+        return new ConsuptionResourceCollection(Consuption::paginate(5));
     }
 }
