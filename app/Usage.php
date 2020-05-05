@@ -21,7 +21,7 @@ class Usage extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function consuption(){
-        return $this->hasOne(Consuption::class);
+    public function consumption(){
+        return $this->hasOne(Consumption::class);
     }
 }

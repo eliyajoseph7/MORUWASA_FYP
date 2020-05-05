@@ -6,11 +6,11 @@
             Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
             Chart.defaults.global.defaultFontColor = '#292b2c';
 
-            this.ajaxGetConsuptionMonthlyData();
+            this.ajaxGetConsumptionMonthlyData();
 
         },
 
-        ajaxGetConsuptionMonthlyData: function() {
+        ajaxGetConsumptionMonthlyData: function() {
             // var urlPath = 'http://' + window.location.hostname + '/data';
             var request = $.ajax({
                 method: 'GET',
@@ -45,7 +45,7 @@
                         pointHoverBackgroundColor: "rgba(2,117,216,1)",
                         pointHitRadius: 20,
                         pointBorderWidth: 2,
-                        data: response.consuption_count_data // The response got from the ajax request containing data for the completed jobs in the corresponding months
+                        data: response.consumption_count_data // The response got from the ajax request containing data for the completed jobs in the corresponding months
                     }],
                 },
                 options: {

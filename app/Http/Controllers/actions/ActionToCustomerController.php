@@ -21,16 +21,16 @@ class ActionToCustomerController extends Controller
             'street' => $request -> input('street'),
         ];
         $view = Customer::find($id);
-        $daily_consuption = Usage::join('consuptions', 'usages.id', '=', 'consuptions.id')
+        $daily_consumption = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
                                     ->where('usages.customer_id', $id)
-                                    // ->whereMonth('consuptions.created_at', date('m'))
-                                    ->select('consuptions.created_at',DB::raw('SUM(cast(consuptions.consuption as double precision))'))
-                                    ->groupBy('consuptions.created_at')
+                                    // ->whereMonth('consumptions.created_at', date('m'))
+                                    ->select('consumptions.created_at',DB::raw('SUM(cast(consumptions.consumption as double precision))'))
+                                    ->groupBy('consumptions.created_at')
                                     ->get();
-        // return $daily_consuption;  
+        // return $daily_consumption;  
 
         $meter = Meter::where('customer_id',null)
                         ->get();
-        return view('actionToCustomers/view', compact('view','daily_consuption','meter'));
+        return view('actionToCustomers/view', compact('view','daily_consumption','meter'));
     }
 }

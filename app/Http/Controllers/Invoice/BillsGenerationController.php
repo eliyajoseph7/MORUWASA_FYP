@@ -15,9 +15,9 @@ class BillsGenerationController extends Controller
         if(date('d') == 28){
             $data = DB::table('customers')
                         ->join('usages', 'customers.id', '=', 'usages.customer_id')
-                        ->join('consuptions', 'usages.id', '=', 'consuptions.id')
-                        ->whereMonth('consuptions.created_at', date('m'))
-                        ->select('customers.id', 'customers.name', DB::raw('cast(customers.category as varchar)'), DB::raw('SUM(cast(consuptions.consuption as double precision)) as units'))
+                        ->join('consumptions', 'usages.id', '=', 'consumptions.id')
+                        ->whereMonth('consumptions.created_at', date('m'))
+                        ->select('customers.id', 'customers.name', DB::raw('cast(customers.category as varchar)'), DB::raw('SUM(cast(consumptions.consumption as double precision)) as units'))
                         ->groupBy('customers.id', 'customers.category')
                         ->get();
     

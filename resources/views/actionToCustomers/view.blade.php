@@ -77,7 +77,7 @@
         <!-- Preview chart -->
         <div class="card card-primary card-outline">
                 <div class="card-header py-3">
-                    <h4 class="m-0 font-weight-bold text-primary">Monthly consuption trend</h4>
+                    <h4 class="m-0 font-weight-bold text-primary">Monthly consumption trend</h4>
                 </div>
                 <div class="card-body">
                     <canvas id="myChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
@@ -107,8 +107,8 @@
                             $count = 0;
                                 
                                 ?>
-                                    @if(count($daily_consuption) > 0 )
-                                        @foreach($daily_consuption -> all() as $daily_consuption) 
+                                    @if(count($daily_consumption) > 0 )
+                                        @foreach($daily_consumption -> all() as $daily_consumption) 
                                         
                                             <?php 
                                             $count += 1;
@@ -116,8 +116,8 @@
                                             
                                             <tr class="gradeA odd" role="row">
                                                 <td class="sorting_1">{{( $count )}}</td>
-                                                <td >{{( $daily_consuption -> created_at->format('d,M-Y') )}}</td>
-                                                <td class="center">{{( $daily_consuption -> sum )}}</td>
+                                                <td >{{( $daily_consumption -> created_at->format('d,M-Y') )}}</td>
+                                                <td class="center">{{( $daily_consumption -> sum )}}</td>
                                                 
                                             </tr>
                                         @endforeach

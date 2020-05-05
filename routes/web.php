@@ -57,9 +57,9 @@ Route::post('/addMeter', 'MeterController@add');
 Route::post('/registerStaff', 'Auth\SetupController@add');
 
 
-// Route::get('/data', 'Chart\ChartDataController@getMonthlyConsuptionData');
+// Route::get('/data', 'Chart\ChartDataController@getMonthlyConsumptionData');
 // Route::get('/get-categories', 'Chart\CustomerCategoryChartController@getTotalCategoryData');
-// Route::get('/get-consuption', 'Chart\CategoryConsuptionChartController@getMonthlyConsuptionData');
+// Route::get('/get-consumption', 'Chart\CategoryConsumptionChartController@getMonthlyConsumptionData');
 
     /*
     *      controllers for charts 
@@ -68,18 +68,18 @@ Route::get('/get-categories', [
      'as'  => 'categories',
      'uses' => 'Chart\CustomerCategoryChartController@getTotalCategoryData'
 ]);
-Route::get('/get-consuption', [
+Route::get('/get-consumption', [
      'as'  => 'consumptions',
-     'uses' => 'Chart\CategoryConsuptionChartController@getMonthlyConsuptionData'
+     'uses' => 'Chart\CategoryConsumptionChartController@getMonthlyConsumptionData'
 ]);
                 
 Route::get('/data',[
     'as' => 'data.show',
-    'uses' => 'Chart\ChartDataController@getMonthlyConsuptionData'
+    'uses' => 'Chart\ChartDataController@getMonthlyConsumptionData'
 ]);
 Route::get('/units',[
     'as' => 'units.show',
-    'uses' => 'Chart\InteractiveConsuptionChartController@getAllLiveConsuption'
+    'uses' => 'Chart\InteractiveConsumptionChartController@getAllLiveConsumption'
 ]);
 Route::get('view/trends/{id}',[
     'as' => 'trends',

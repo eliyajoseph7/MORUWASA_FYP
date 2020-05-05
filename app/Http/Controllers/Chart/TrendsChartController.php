@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Chart;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Consuption;
+use App\Consumption;
 class TrendsChartController extends Controller
 {
     //
     public function getAllDays(){
         $days_array = array();
-        $month_dates = Consuption::whereMonth('created_at', date('m'))->orderBy('created_at', 'ASC')->get('created_at');
+        $month_dates = Consumption::whereMonth('created_at', date('m'))->orderBy('created_at', 'ASC')->get('created_at');
         $month_dates = json_decode($month_dates);
         if(!empty($month_dates)){
             foreach($month_dates as $unformatedDate){
@@ -24,11 +24,11 @@ class TrendsChartController extends Controller
     }
 
     public function getAllDaysCount($day, $id){
-        $day_count_consumptions = Consuption::join('usages', 'usages.id', '=', 'consuptions.id')
+        $day_count_consumptions = Consumption::join('usages', 'usages.id', '=', 'consumptions.id')
                                                 ->where('usages.customer_id', $id)
-                                                ->whereMonth('consuptions.created_at', date('m'))
-                                                ->whereDay('consuptions.created_at', $day)
-                                                ->get()->sum('consuption');
+                                                ->whereMonth('consumptions.created_at', date('m'))
+                                                ->whereDay('consumptions.created_at', $day)
+                                                ->get()->sum('consumption');
         return ($day_count_consumptions);                                        
     }
 
@@ -49,7 +49,7 @@ class TrendsChartController extends Controller
 
         $day_consumption_data_array = array(
             'day' => $day_name_array,
-            'consuption_count_data' => $day_consumption_array_count,
+            'consumption_count_data' => $day_consumption_array_count,
             'max' => $max
         );
         return $day_consumption_data_array;

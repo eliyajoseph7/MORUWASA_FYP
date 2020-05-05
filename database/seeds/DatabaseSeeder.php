@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
             $usage->save();
             });
 
-        factory(App\Consuption::class, 2000)->create()->each(function($consuption){
-            $consuption->save();
+        factory(App\Consumption::class, 2000)->create()->each(function($consumption){
+            $consumption->save();
             });
     }
 }

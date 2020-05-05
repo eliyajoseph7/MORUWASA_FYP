@@ -6,11 +6,11 @@
             Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
             Chart.defaults.global.defaultFontColor = '#292b2c';
 
-            this.ajaxGetConsuptionMonthlyData();
+            this.ajaxGetConsumptionMonthlyData();
 
         },
 
-        ajaxGetConsuptionMonthlyData: function() {
+        ajaxGetConsumptionMonthlyData: function() {
             // var urlPath = 'http://' + window.location.hostname + '/get-categories';
             var request = $.ajax({
                 method: 'GET',

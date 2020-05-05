@@ -15,7 +15,7 @@ class UpdateCustomerController extends Controller
         $edit = Customer::find($id);
         $validatedData = $request->validate([
             'name' => 'required',
-            'phone' => 'bail|required|regex:/^(255)[0-9]{9}$/',
+            'phone' => 'bail|required|regex:/^(\+255)[0-9]{9}$/',
             'street' => 'required',
             'category' => 'required',
             'meter_no' => 'required',
