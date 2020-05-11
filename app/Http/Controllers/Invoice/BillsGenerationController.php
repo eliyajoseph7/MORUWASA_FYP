@@ -12,7 +12,7 @@ class BillsGenerationController extends Controller
 {
     //
     public function generateBill(){
-        if(date('d') == 11){
+        if(date('d') == 28){
             $data = DB::table('customers')
                         ->join('usages', 'customers.id', '=', 'usages.customer_id')
                         ->join('consumptions', 'usages.id', '=', 'consumptions.id')
@@ -91,11 +91,11 @@ class BillsGenerationController extends Controller
                                     
                         $message =  str_replace(['"','{','}','[',']'], " ", json_encode($message));  
 
-                            // Nexmo::message()->send([
-                            // 'to'   => $sms->phone,
-                            // 'from' => '0620563040',
-                            // 'text' => $message
-                            // ]);
+                            Nexmo::message()->send([
+                            'to'   => $sms->phone,
+                            'from' => '0620563040',
+                            'text' => $message
+                            ]);
                         }                        
                         
 
