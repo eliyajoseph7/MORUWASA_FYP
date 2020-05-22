@@ -30,7 +30,7 @@
 
             var ctx = document.getElementById("myAreaChart");
             var myLineChart = new Chart(ctx, {
-                type: 'line',
+                type: 'radar',
                 data: {
                     labels: response.months, // The response got from the ajax request containing all month names in the database
                     datasets: [{
