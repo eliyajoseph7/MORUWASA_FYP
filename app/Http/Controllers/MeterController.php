@@ -15,7 +15,7 @@ class MeterController extends Controller
 
     public function add(Request $request){
         $validatedData = $request->validate([
-            'meter_no' => 'required',
+            'meter_no' => ['required', 'min:8', 'max:8'],
             'type' => 'required',
         ]);
 
