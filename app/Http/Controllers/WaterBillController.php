@@ -31,12 +31,41 @@ class WaterBillController extends Controller
                         ->groupBy('customer_id')
                         ->get();
 
-        // foreach ($usages->all() as $usage) {
-            // $bill -> customer_id = $usages->all() -> customer_id;
-            // $bill -> units = $usages->all() -> units;
-            // $bill -> save();
-        // }
-        // return $usages;    
+    if(date('d') == 28){
+        $data = DB::table('customers')
+                    ->join('usages', 'customers.id', '=', 'usages.customer_id')
+                    ->join('consuptions', 'usages.id', '=', 'consuptions.id')
+                    ->whereMonth('consuptions.created_at', date('m'))
+                    ->select('customers.id', 'customers.name', DB::raw('cast(customers.category as varchar)'), DB::raw('SUM(cast(consuptions.consuption as double precision)) as units'))
+                    ->groupBy('customers.id', 'customers.category')
+                    ->get();
+
+        $inserts = [];
+        foreach($data as $data){
+            if($data->category == 'domestic'){
+                $amount = $data -> units * 1600;
+            }elseif($data->category == 'industry'){
+                $amount = $data -> units * 2900;
+            }elseif($data->category == 'commercial'){
+                $amount = $data -> units * 2300;
+            }elseif($data->category == 'tank'){
+                $amount = $data -> units * 1600;
+            }elseif($data->category == 'kiosk'){
+                $amount = $data -> units * 1500;
+            }else{
+                $amount = $data -> units * 1900;
+            }
+            
+           $inserts[] = ['customer_id' => $data->id,
+                         'units' => $data->units,
+                         'name' => $data->name,
+                         'amount' => $amount,
+                        'created_at' => now()];
+        }  
+            
+          DB::table('water_bills')->insert($inserts);
+    }    
+           
 
         return view('waterBill', ['bill' => $bill, 'usages' => $usages]);
     }
