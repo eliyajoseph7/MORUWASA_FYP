@@ -28,12 +28,15 @@ class CustomerController extends Controller
         $phone = $request->input('phone');
         $meter = $request->input('meter_no');
 
-        if(Customer::where('phone', $phone)->exists())
+        $check = Customer::join('meters', 'customers.id', '=', 'meters.customer_id')
+                    ->where('phone', $phone)
+                    ->where('meters.meter_no', $meter);
+                    
+
+        if($check->exists())
         {
-            if(Meter::where('meter_no', $meter)->exists())
-            {
-                return new CustomerResource(["Login successfully"]);
-            }
+                return new CustomerResource(["Login successfully", $check->pluck('name')]);
+            
         }else{
             return new CustomerResource(["Either phone or meter number was incorrect"]);
         }
