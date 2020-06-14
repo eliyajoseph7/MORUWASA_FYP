@@ -6,7 +6,16 @@ use Illuminate\Http\Request;
 use App\Meter;
 class MeterController extends Controller
 {
-    //
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function meters()
     {
         $meter = Meter::all();

@@ -11,7 +11,16 @@ use App\Usage;
 
 class WaterBillController extends Controller
 {
-    //
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(Request $request){
         $bill = new WaterBill;
         // $usages = Usage::select('id', 'customer_id', 'consumption')

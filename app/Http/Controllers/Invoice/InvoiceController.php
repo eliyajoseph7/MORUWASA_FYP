@@ -7,7 +7,16 @@ use App\Http\Controllers\Controller;
 
 class InvoiceController extends Controller
 {
-    //
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function invoice(){
         $invoice = WaterBill::whereMonth('created_at', date('m'))->orderBy('created_at', 'ASC')->get();
         // return $invoice;
