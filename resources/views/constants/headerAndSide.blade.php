@@ -51,6 +51,17 @@
   height: 30px;
   border-radius: 50%;
 }
+#page-wrapper {
+    background-color: aliceblue;
+}
+
+.ibox-card:hover {
+  transform: scale(1.1)
+}
+
+.dt:hover {
+    transform:scale(1.02)
+}
 </style>
 
 </head>
