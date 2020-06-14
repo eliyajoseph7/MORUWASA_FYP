@@ -13,6 +13,7 @@ $factory->define(Customer::class, function (Faker $faker) {
         'gender' => $faker->randomElement(['M', 'F']),
         'phone' => $faker->phoneNumber,
         'category' => $faker->randomElement(['domestic', 'industry', 'institution', 'commercial', 'tank','kiosk']),
+        'api_token' => bin2hex(openssl_random_pseudo_bytes(30))
         
 
         

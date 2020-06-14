@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('gender');
             $table->string('phone');
             $table->string('category');
+            $table->string('api_token', 60);
             $table->timestamps();
         });
     }
