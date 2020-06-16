@@ -36,13 +36,26 @@ class WaterBillController extends Controller
         /* for postgres, the cast(something as data type) must be added otherwise 
         * SQLSTATE[42883]: Undefined function: 7 ERROR: function sum(character varying) does not exist LINE 1: 
         *ty   will be thrown*/
-        $usages = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
+        $check = $request->input('filter');
+        if($check == "allTime"){
+            $usages = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
                         ->select('customer_id', DB::raw("SUM(cast(consumptions.consumption as double precision)) as units"))
                         ->groupBy('customer_id')
                         ->get();
    
            
+            return view('waterBill', ['usages' => $usages]);
+        }else{
+            $usages = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
+                        ->select('customer_id', DB::raw("SUM(cast(consumptions.consumption as double precision)) as units"))
+                        ->whereMonth('consumptions.created_at', date('m'))
+                        ->groupBy('customer_id')
+                        ->get();
+   
+           
 
-        return view('waterBill', ['bill' => $bill, 'usages' => $usages]);
+            return view('waterBill', ['usages' => $usages]);
+        }
+        
     }
 }
