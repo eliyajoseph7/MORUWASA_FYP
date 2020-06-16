@@ -21,16 +21,17 @@
 
      <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
-        <form class="form-inline my-2 my-lg-0">
-            <select class="form-control mr-sm-2" type="text" >
+        <form class="form-inline my-2 my-lg-0" action="{{ url('/waterBill') }}" method="POST">
+        @csrf
+            <select class="form-control mr-sm-2" type="text" name="filter">
                 <option value="" selected>filter by</option>
-                <option value="current">Current month</option>
+                <option value="current" >Current month</option>
                 <option value="allTime">All time</option>
             </select>
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Filter</button>
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Filter</button>
         </form> 
        
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
     </div>
 
 

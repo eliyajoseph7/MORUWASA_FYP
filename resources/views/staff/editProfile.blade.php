@@ -257,13 +257,13 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <!-- <div class="card">
           <div class="card-body">
             <h6 class="card-title font-weight-bold">Support</h6>
             <p class="card-text">Get fast, free help from our friendly assistants.</p>
             <button type="button" class="btn btn-primary">Contact Us</button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
