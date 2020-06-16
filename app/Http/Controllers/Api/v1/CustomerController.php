@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Http\Resources\CustomerResource;
+use App\Http\Resources\ResourcesCollections\ConsumptionResourceCollection;
 use App\Customer;
 use App\Meter;
 
@@ -21,24 +22,26 @@ class CustomerController extends Controller
     public function store(Request $request): CustomerResource
     {
         $request -> validate([
-            'phone'=> 'required',
+            'name'=> 'required',
             'meter_no'=> 'required'
         ]);
 
-        $phone = $request->input('phone');
+        $name = $request->input('name');
         $meter = $request->input('meter_no');
 
         $check = Customer::join('meters', 'customers.id', '=', 'meters.customer_id')
-                    ->where('phone', $phone)
+                    ->where('name', $name)
                     ->where('meters.meter_no', $meter);
                     
 
         if($check->exists())
         {
-                return new CustomerResource(["Login successfully", $check->pluck('name')]);
+                $token = Customer::where('phone', $check->pluck('phone'))->get('api_token');
+
+                return new CustomerResource($token);
             
         }else{
-            return new CustomerResource(["Either phone or meter number was incorrect"]);
+            return new CustomerResource([404]);
         }
     }
 }
