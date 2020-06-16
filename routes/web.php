@@ -49,7 +49,7 @@ Route::get('/meter/{id}/customer', function($id){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/waterBill', 'WaterBillController@index')->name('waterBill');
+Route::any('/waterBill', 'WaterBillController@index')->name('waterBill');
 Route::get('/customers', 'CustomerController@index')->name('customers');
 Route::get('/meter', 'MeterController@meters')->name('meter');
 Route::post('/addCustomer', 'CustomerController@add');
