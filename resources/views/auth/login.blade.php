@@ -75,7 +75,7 @@
 @include('constants.header')
 <div class="page login-page">
         <div class="container d-flex align-items-center">
-            <div class="form-holder has-shadow m-auto">
+            <div class="form-holder has-shadow m-auto" style="width: 80%;">
                 <div class="row shadow-lg">
                     <!-- Logo & Information Panel-->
                     <div class="col-lg-6 ">
