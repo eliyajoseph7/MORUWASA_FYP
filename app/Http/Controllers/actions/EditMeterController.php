@@ -20,7 +20,7 @@ class EditMeterController extends Controller
 
     public function updateMeter(Request $request, $id){
         $validatedData = $request->validate([
-            'meter_no' => 'required',
+            'meter_no' => ['required', 'min:8', 'max:8'],
         ]);
 
         if(Meter::where('id', '!=', $id)->where('meter_no', Input::get('meter_no'))->exists()){
