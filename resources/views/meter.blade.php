@@ -1,5 +1,12 @@
 @include('constants.headerAndSide')
+<style>
 
+@media print {
+  table td:last-child {display:none}
+  table th:last-child {display:none}
+}
+
+</style>
 @if(session('info'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{session('info')}}.
@@ -39,6 +46,8 @@
 
 <!-- Form start -->
 <div class=" shadow mb-3">
+<?php $role = Auth::user()->permission; ?>
+@if($role == 'superuser')
 <form class="p-3 container jumbotron" action="{{ url('/addMeter') }}" method="POST">
     @csrf
     <div class="form-row">
@@ -70,8 +79,12 @@
 
         
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <div class="bt">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+    
 </form>
+@endif
 </div>
 
 <!-- Form end -->
