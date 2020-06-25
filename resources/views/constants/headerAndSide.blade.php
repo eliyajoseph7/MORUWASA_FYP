@@ -62,6 +62,14 @@
 .dt:hover {
     transform:scale(1.02)
 }
+.bt button{
+    width: 150px;
+    transition: width 4s;
+}
+.bt button:hover {
+    display: block;
+    width: 100%;
+}
 </style>
 
 </head>
@@ -174,7 +182,9 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <span><img src="{{ url('uploads/staff/'.Auth::user()->image ) }}" class="avatar" style="width: 30px; border-radius: 50%; height:30px;"></span> {{ Auth::user()->username }}<span class="caret"></span> 
+                                <span>
+                                    <!-- <img src="{{ url('uploads/staff/'.Auth::user()->image ) }}" class="avatar" style="width: 30px; border-radius: 50%; height:30px;"> -->
+                                    <i class="far fa-user"></i></span> {{ Auth::user()->username }}<span class="caret"></span> 
                                  </a>
 
                                 <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
