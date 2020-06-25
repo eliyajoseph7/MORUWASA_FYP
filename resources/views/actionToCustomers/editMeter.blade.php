@@ -122,6 +122,9 @@
                                                     </div>
                                                     
                                                     <div class="row">
+                                                        <div class="col d-flex justify-content-start">
+                                                            <a href="/meter" class="btn btn-outline-secondary" type="submit">Go Back</a>
+                                                        </div>
                                                         <div class="col d-flex justify-content-end">
                                                             <button class="btn btn-primary" type="submit">Save Changes</button>
                                                         </div>
