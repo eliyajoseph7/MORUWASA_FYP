@@ -118,7 +118,7 @@
                         <div class="table-responsive">
                             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                         
-                                <table class="table table-striped table-bordered table-hover dataTables-example dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" role="grid">
+                                <table class="table table-striped table-bordered table-hover dataTables-example dataTable display nowrap" style="width:100%" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" role="grid">
                                     <thead>
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 30px;">S/No.</th>
@@ -198,9 +198,29 @@
                                     .css('font-size', 'inherit');
                     }
                     }
-                ]
-
+                ],
+                
+                responsive: {
+                    details: {
+                        renderer: function ( api, rowIdx, columns ) {
+                            var data = $.map( columns, function ( col, j ) {
+                                return col.hidden ?
+                                    '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                                        '<td>'+col.title+':'+'</td> '+
+                                        '<td>'+col.data+'</td>'+
+                                    '</tr>' :
+                                    '';
+                            } ).join('');
+        
+                            return data ?
+                                $('<table/>').append( data ) :
+                                false;
+                        }
+                    }
+                }
             });
+            
+          
 
         });
 
