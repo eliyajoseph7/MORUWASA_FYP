@@ -44,4 +44,10 @@ class CustomerController extends Controller
             return new CustomerResource([404]);
         }
     }
+
+    public function index(){
+        $customers = Customer::join('meters', 'customers.id', '=', 'meters.customer_id')->get();
+
+        return $customers;
+    }
 }
