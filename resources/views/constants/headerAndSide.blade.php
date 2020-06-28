@@ -15,12 +15,14 @@
     <title> MORUWASA BILLING SYSTEM </title>
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatable/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatable/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
     
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet"> -->
@@ -352,7 +354,7 @@
 
 
  <!-- Mainly scripts -->
- <script src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
+ <!-- <script src="{{ url('js/jquery-3.1.1.min.js') }}"></script> -->
     <script src="{{url('js/popper.min.js')}}"></script>
     <script src="{{url('js/bootstrap.js')}}"></script>
     <script src="{{url('js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
@@ -395,6 +397,8 @@
     <!-- Toastr -->
     <script src="{{url('js/plugins/toastr/toastr.min.js')}}"></script>
 
+    <!-- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
+  <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
     <script>
     // Config box
 
@@ -621,4 +625,6 @@
             $('#fixedfooter').prop('checked','checked')
         }
     }
+
+    
 </script>
