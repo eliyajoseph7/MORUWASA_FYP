@@ -1,4 +1,5 @@
-@include('constants.headerAndSide')
+@extends('constants.headerAndSide')
+@section('content')
 <style>
 .button {
   border-radius: 10px;
@@ -90,7 +91,7 @@
 <div class=" shadow mb-3">
 <?php $role = Auth::user()->permission; ?>
 @if($role == 'superuser')
-<form class="p-3 container jumbotron" action="{{ url('/addCustomer') }}" method="POST">
+<form class="p-3 container-fluid m-auto jumbotron" action="{{ url('/addCustomer') }}" method="POST" style="width:90%">
 @csrf
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -193,7 +194,7 @@
 <!-- Form end -->
     
 
-    <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="wrapper wrapper-content">
             <div class="row">
                 <div class="col-lg-12">
                 <div class="ibox dt shadow">
@@ -343,3 +344,4 @@
         });
 
     </script>
+@endsection

@@ -1,4 +1,5 @@
-@include('constants/headerAndSide')
+@extends('constants/headerAndSide')
+@section('content')
 <script src="{{ url('js/waypoints/4.0.1/jquery.waypoints.js') }}"></script>
 <script src="{{ url('js/Counter-Up/1.0.0/jquery.counterup.js') }}"></script>
 <div class="container-fluid">
@@ -380,3 +381,4 @@ var timer = setTimeout(function() {
     font-family: "montserrat", sans-serif;
 }
 </style>
+@endsection

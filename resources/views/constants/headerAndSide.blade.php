@@ -219,10 +219,10 @@
         </div>
         </nav>
 
-        <main class="py-4">
+        <div class="wrapper wrapper-content container-fluid">
             @yield('content')
-        </main>
         </div>
+    </div>
     <!-- Top bar end -->
 <div class="jvectormap-tip"></div>
 <!-- Theme config -->

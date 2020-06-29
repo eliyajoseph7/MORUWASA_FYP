@@ -1,4 +1,5 @@
-@include('constants.headerAndSide')
+@extends('constants.headerAndSide')
+@section('content')
 <div class="row wrapper border-bottom white-bg page-heading m-auto mb-3">
         <div class="col-lg-10 top">
             <h2></h2>
@@ -20,7 +21,7 @@
     <div class="text-right">
         <button id="printInvoice" class="btn btn-primary"><i class="fa fa-print"></i> Print</button>
        
-</div>
+    </div>
 
                 <div class="col-lg-12">
                     <div class="tabs-container">
@@ -111,3 +112,5 @@
 
 }
 </style>
+
+@endsection

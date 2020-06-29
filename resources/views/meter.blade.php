@@ -1,4 +1,5 @@
-@include('constants.headerAndSide')
+@extends('constants.headerAndSide')
+@section('content')
 <style>
 
 @media print {
@@ -48,7 +49,7 @@
 <div class=" shadow mb-3">
 <?php $role = Auth::user()->permission; ?>
 @if($role == 'superuser')
-<form class="p-3 container jumbotron" action="{{ url('/addMeter') }}" method="POST">
+<form class="p-3 container-fluid m-auto jumbotron" action="{{ url('/addMeter') }}" method="POST" style="width:90%">
     @csrf
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -225,3 +226,4 @@
         });
 
     </script>
+@endsection
