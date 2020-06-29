@@ -7,11 +7,14 @@ use Faker\Generator as Faker;
 
 $factory->define(Meter::class, function (Faker $faker) {
     static $number = 1;
-
+    $result = '';
+    for($i = 0; $i < 8; $i++) {
+        $result .= mt_rand(0, 9);
+    }
     return [
-        //
+        
                
-        'meter_no' => $faker->unique()->numberBetween($min = 1, $max = 50000000),
+        'meter_no' => $result,
         'customer_id' => $number++,
         'type' => $faker->randomElement(['prepaid', 'postpaid']),
         // 'customer_id' => $faker->unique()->numberBetween($min = 1, $max = 10000),
