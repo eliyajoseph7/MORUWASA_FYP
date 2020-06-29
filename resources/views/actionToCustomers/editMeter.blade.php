@@ -1,4 +1,5 @@
-@include('constants.headerAndSide')
+@extends('constants/headerAndSide')
+@section('content')
 
     <div class="row wrapper border-bottom white-bg page-heading m-auto mb-3">
         <div class="col-lg-10">
@@ -161,3 +162,5 @@
         </div>
     </div>
 </div>    
+
+@endsection

@@ -1,5 +1,5 @@
-@include('constants.headerAndSide')
-
+@extends('constants/headerAndSide')
+@section('content')
 <!-- script for hiding and showing the passaord fields -->
 <script>
  $(document).ready(function(){
@@ -284,3 +284,5 @@ $('#OpenImgUpload').click(function(){
 });
 
 </script>
+
+@endsection
