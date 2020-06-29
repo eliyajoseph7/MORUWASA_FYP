@@ -12,7 +12,7 @@ class BillsGenerationController extends Controller
 {
     //
     public function generateBill(){
-        if(date('d') == 28){
+        if(date('d') == 29){
             $data = DB::table('customers')
                         ->join('usages', 'customers.id', '=', 'usages.customer_id')
                         ->join('consumptions', 'usages.id', '=', 'consumptions.id')
