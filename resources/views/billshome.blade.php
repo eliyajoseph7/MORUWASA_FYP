@@ -7,7 +7,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
         </div>
 
         <!-- Content Row -->
@@ -48,12 +48,12 @@
                               <div class="ibox-tools">
                                   <span class="label label-primary float-right">currently</span>
                               </div>
-                              <h5>suspended</h5>
+                              <h5>Water Consumed</h5>
                           </div>
                           <div class="ibox-content">
-                              <h1 class="no-margins num">106</h1>
+                              <h1 class="no-margins"><span class=" num">{{( $water_consumed )}}</span><span>Litres</span></h1>
                               <!-- <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div> -->
-                              <small>suspended customers</small>
+                              <small>Current month consumption</small>
                           </div>
                       </div>
                   </div>
@@ -63,12 +63,15 @@
                               <div class="ibox-tools">
                                   <span class="label label-danger float-right">currently</span>
                               </div>
-                              <h5>Paid bills</h5>
+                              <h5>Street with highest Consumption </h5>
                           </div>
                           <div class="ibox-content">
-                              <h1 class="no-margins">70%</h1>
+                          <?php 
+                            $consumed_value = $high_consumption_street->units  * 1000
+                          ?>
+                              <h1 class="no-margins"><span class="font-weight-bold" style="color:gold;">{{( $consumed_value )}}</span>Litres</h1>
                               <!-- <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div> -->
-                              <small>In last month</small>
+                              <small>In {{($high_consumption_street->street)}}</small>
                           </div>
                       </div>
                   </div>
