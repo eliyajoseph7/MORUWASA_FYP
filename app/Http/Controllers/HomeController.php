@@ -6,7 +6,9 @@ use App\Customer;
 use App\Payment;
 use App\WaterBill;
 use App\Meter;
+use App\Consumption;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -36,7 +38,18 @@ class HomeController extends Controller
         $free_meter = Meter::where('customer_id', null)->get()->count();
 
          $amount = WaterBill::whereMonth('created_at', date('m', strtotime('-1 month')))->get()->sum('amount');
-    return view('billshome',compact('count', 'amount','count_meter','free_meter'));
+
+         $water_consumed = Consumption::whereMonth('created_at', date('m'))->get('consumption')->sum('consumption') * 1000;
+
+
+         $high_consumption_street = Consumption::join('usages', 'consumptions.id', '=', 'usages.id')
+                                                ->join('customers', 'usages.customer_id', '=', 'customers.id')
+                                                ->select('customers.street', DB::raw("SUM(cast(consumptions.consumption as double precision)) as units"))
+                                                ->groupBy('customers.street')
+                                                ->orderBy('units', 'DESC')
+                                                ->first();
+
+    return view('billshome',compact('count', 'amount','count_meter','free_meter', 'water_consumed', 'high_consumption_street'));
     }
 
 }
