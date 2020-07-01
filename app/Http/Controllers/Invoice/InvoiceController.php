@@ -18,7 +18,7 @@ class InvoiceController extends Controller
     }
     
     public function invoice(){
-        $invoice = WaterBill::whereMonth('created_at', date('m'))->orderBy('created_at', 'ASC')->get();
+        $invoice = WaterBill::whereMonth('created_at', date('m', strtotime('-1 month')))->orderBy('created_at', 'ASC')->get();
         // return $invoice;
         return view('invoices', compact('invoice'));
     }
