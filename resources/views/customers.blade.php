@@ -233,7 +233,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 183px;">Gender</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Phone</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Category</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Status</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Status</th> -->
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Trend</th>
                                     </tr>
                                     </thead>
@@ -262,13 +262,13 @@
                                                             <td class="center">{{( $customers -> phone )}}</td>
                                                             <td class="center">{{( $customers -> category )}}</td>
                                                             <!-- getting customer's payment status from payments table -->
-                                                            @if(count($customers->payments) > 0 )
+                                                            <!-- @if(count($customers->payments) > 0 )
                                                                 @foreach($customers->payments as $cust)
                                                                     <td>{{( $cust -> status )}}</td>
                                                                 @endforeach
                                                             @else
                                                                 <td>-</td>
-                                                            @endif 
+                                                            @endif  -->
                                                             <td><a href='{{ url("/view/{$customers -> id}") }}'><button class="button"><span>Bill Trend</span></button></a> </td>  
                                                         </tr>
                                                     @endforeach
@@ -283,7 +283,7 @@
                                             <th rowspan="1" colspan="1">Gender</th>
                                             <th rowspan="1" colspan="1">Phone</th>
                                             <th rowspan="1" colspan="1">Category</th>
-                                            <th rowspan="1" colspan="1">Status</th>
+                                            <!-- <th rowspan="1" colspan="1">Status</th> -->
                                             <th rowspan="1" colspan="1">Trend</th>
                                         </tr>
                                     </tfoot>
