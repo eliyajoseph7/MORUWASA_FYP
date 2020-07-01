@@ -17,14 +17,15 @@ class BillsGenerationController extends Controller
                         ->join('usages', 'customers.id', '=', 'usages.customer_id')
                         ->join('consumptions', 'usages.id', '=', 'consumptions.id')
                         ->whereMonth('consumptions.created_at', date('m'))
-                        ->select('customers.id', 'customers.name', DB::raw('cast(customers.category as varchar)'), DB::raw('SUM(cast(consumptions.consumption as double precision)) as units'))
+                        ->select('customers.id', 'customers.name', DB::raw('cast(customers.category as varchar)'), 
+                                DB::raw('SUM(cast(consumptions.consumption as double precision)) as units'))
                         ->groupBy('customers.id', 'customers.category')
                         ->get();
     
             $check = new WaterBill;
     
             if($check::whereMonth('created_at', date('m'))->exists()){
-    
+                // Do nothing
             }else{
                     $inserts = [];
                 foreach($data as $data){
@@ -73,9 +74,8 @@ class BillsGenerationController extends Controller
                     $billMesage = WaterBill::join('customers', 'water_bills.customer_id', '=', 'customers.id')
                                             ->join('control_numbers', 'water_bills.id', '=', 'control_numbers.id')
                                             ->whereMonth('water_bills.created_at', date('m'))
-                                            ->where('phone', '255620563040')
+                                            ->where('phone', '+255620563040')
                                             ->get();
-
 
                         $message = [];
                         foreach($billMesage as $sms){
