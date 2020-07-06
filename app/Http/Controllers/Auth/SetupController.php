@@ -32,7 +32,6 @@ class SetupController extends Controller
             'lastname' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'occupation' => ['required'],
-            'gender' => ['required'],
             'phone' => ['required', 'regex:/^(\+255)[0-9]{9}$/', 'max:13'],
             'permission' => ['required', 'string', 'max:15'],
             'gender' => ['required', 'string', 'max:5'],
