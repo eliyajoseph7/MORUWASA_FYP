@@ -30,7 +30,7 @@ class CustomerController extends Controller
         $meter = $request->input('meter_no');
 
         $check = Customer::join('meters', 'customers.id', '=', 'meters.customer_id')
-                    ->where('name', $name)
+                    ->whereRaw('lower(name) = ?', strtolower($name))
                     ->where('meters.meter_no', $meter);
                     
 
