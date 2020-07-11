@@ -7,7 +7,12 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+          <div class="d-none d-sm-inline-block">
+            <!-- <i class="fas fa-print fa-2x d-inline-block" onClick="window.print()"></i> -->
+            <a href="#" class="btn btn-sm btn-primary shadow-sm d-inline-block" id="print">
+              <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+          
         </div>
 
         <!-- Content Row -->
@@ -213,7 +218,9 @@
 
             }, 1300);
 
-
+            $('#print').click(function(){
+              window.print();
+            });
         //     var data1 = [
         //         [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
         //     ];
