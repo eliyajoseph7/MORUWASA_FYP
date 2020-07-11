@@ -44,10 +44,6 @@
   opacity: 1;
   right: 0;
 }
-@media print {
-  table td:last-child {display:none}
-  table th:last-child {display:none}
-}
 </style>
 
 @if(session('info'))
@@ -297,51 +293,4 @@
 </div>
 
 
-        <script>
-        $(document).ready(function(){
-            $('.dataTables-example').DataTable({
-                pageLength: 25,
-                responsive: true,
-                dom: '<"html5buttons"B>lTfgitp',
-                buttons: [
-                    { extend: 'copy'},
-                    {extend: 'csv'},
-                    {extend: 'excel', title: 'CustomerInfos'},
-                    {extend: 'pdf', title: 'CustomerInfos'},
-
-                    {extend: 'print',
-                     customize: function (win){
-                            $(win.document.body).addClass('white-bg');
-                            $(win.document.body).css('font-size', '10px');
-
-                            $(win.document.body).find('table')
-                                    .addClass('compact')
-                                    .css('font-size', 'inherit');
-                    }
-                    }
-                ],
-                responsive: {
-                    details: {
-                        renderer: function ( api, rowIdx, columns ) {
-                            var data = $.map( columns, function ( col, j ) {
-                                return col.hidden ?
-                                    '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                                        '<td>'+col.title+':'+'</td> '+
-                                        '<td>'+col.data+'</td>'+
-                                    '</tr>' :
-                                    '';
-                            } ).join('');
-        
-                            return data ?
-                                $('<table/>').append( data ) :
-                                false;
-                        }
-                    }
-                }
-
-            });
-
-        });
-
-    </script>
 @endsection
