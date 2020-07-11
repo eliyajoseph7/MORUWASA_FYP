@@ -55,7 +55,10 @@ Route::get('/meter', 'MeterController@meters')->name('meter');
 Route::post('/addCustomer', 'CustomerController@add');
 Route::post('/addMeter', 'MeterController@add');
 Route::post('/registerStaff', 'Auth\SetupController@add');
-
+Route::get('/users', 'Auth\UsersController@users');
+Route::post('update/{id}', 'Auth\UsersController@update');
+Route::post('registerUser', 'actions\RegisterUserController@register');
+Route::get('/deleteUser/{id}', 'actions\RegisterUserController@delete');
 
 // Route::get('/data', 'Chart\ChartDataController@getMonthlyConsumptionData');
 // Route::get('/get-categories', 'Chart\CustomerCategoryChartController@getTotalCategoryData');
