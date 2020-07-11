@@ -13,7 +13,7 @@ class UsersController extends Controller
         $users = User::all();
         if(auth()->user()->permission == 'superuser')
         {
-            return view('staff\users', compact('users'));
+            return view('staff.users', compact('users'));
         }
         else{return redirect('/home');}
     }
