@@ -51,7 +51,7 @@
     <div class="col-md-4 bt p-3">
         <button class="btn btn-primary">Register User</button>
     </div>
-            <div class="row usr" style="display: none;">
+            <div class="row ">
                 <div class="col-lg-12">
                     <div class="ibox">
                         <div class="ibox-title">
@@ -74,7 +74,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="ibox-content">
+                        <div class="ibox-content usr" style="display: none;">
                             <h2>
                                 User registration Form
                             </h2>
