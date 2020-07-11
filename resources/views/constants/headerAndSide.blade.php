@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <link href="{{ url('css/plugins/iCheck/custom.css') }}" rel="stylesheet">
+    <link href="{{ url('css/plugins/steps/jquery.steps.css') }}" rel="stylesheet">
 
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet"> -->
@@ -73,6 +74,10 @@
     display: block;
     width: 100%;
 }
+@media print {
+  table td:last-child {display:none}
+  table th:last-child {display:none}
+}
 </style>
 
 </head>
@@ -108,12 +113,15 @@
                                                         
                         </ul>
                     </li> -->
+                    <?php $role = Auth::user()->permission ?>
                     <li>
                         <a href="#"><i class="fa fa-map-signs"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{ url('/meter') }}"><i style="color:green" class="fa fa-circle-o"></i>Meters</a></li>
                             <li><a href="{{ url('/customers') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Customers</a></li>
-                            
+                            @if($role == 'superuser')
+                            <li><a href="{{ url('/users') }}"><i style="color:blue" class="fa fa-circle-o"></i>User Management</a></li>
+                            @endif
                             
                         </ul>
                     </li>
@@ -362,7 +370,11 @@
     <script src="{{url('js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
     <script src="{{url('js/dataTables/datatables.min.js')}}"></script>
     <script src="{{url('js/dataTables/dataTables.bootstrap4.min.js')}}"></script>
+    <!-- Steps -->
+    <script src="{{url('js/plugins/steps/jquery.steps.min.js')}}"></script>
 
+    <!-- Jquery Validate -->
+    <script src="{{url('js/plugins/validate/jquery.validate.min.js')}}"></script>
     <!-- Flot -->
     <script src="{{url('js/plugins/flot/jquery.flot.js')}}"></script>
     <script src="{{url('js/plugins/flot/jquery.flot.tooltip.min.js')}}"></script>
@@ -629,3 +641,143 @@
 
     
 </script>
+<!-- Datatable features -->
+<script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'MeterInfos'},
+                    {extend: 'pdf', title: 'MeterInfos'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ],
+                
+                responsive: {
+                    details: {
+                        renderer: function ( api, rowIdx, columns ) {
+                            var data = $.map( columns, function ( col, j ) {
+                                return col.hidden ?
+                                    '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                                        '<td>'+col.title+':'+'</td> '+
+                                        '<td>'+col.data+'</td>'+
+                                    '</tr>' :
+                                    '';
+                            } ).join('');
+        
+                            return data ?
+                                $('<table/>').append( data ) :
+                                false;
+                        }
+                    }
+                }
+            });
+            
+          
+
+        });
+
+    </script>
+
+
+<script>
+        $(document).ready(function(){
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex)
+                {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex)
+                    {
+                        return true;
+                    }
+
+                    // Forbid suppressing "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age").val()) < 18)
+                    {
+                        return false;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex)
+                    {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex)
+                {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age").val()) >= 18)
+                    {
+                        $(this).steps("next");
+                    }
+
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3)
+                    {
+                        $(this).steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex)
+                {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex)
+                {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                        errorPlacement: function (error, element)
+                        {
+                            element.before(error);
+                        },
+                        rules: {
+                            confirm: {
+                                equalTo: "#password"
+                            }
+                        }
+                    });
+
+             $('.usr').hide();
+             $('.bt').click(function (){
+                 $('.usr').toggle();
+             });       
+       });
+    </script>
+
+    </body>
+</html>
