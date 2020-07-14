@@ -121,6 +121,7 @@
                             <li><a href="{{ url('/customers') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Customers</a></li>
                             @if($role == 'superuser')
                             <li><a href="{{ url('/users') }}"><i style="color:blue" class="fa fa-circle-o"></i>User Management</a></li>
+                            <li><a href="{{ url('/customer_trash') }}"><i style="color:red" class="fas fa-trash-alt"></i>Customer Trash</a></li>
                             @endif
                             
                         </ul>
