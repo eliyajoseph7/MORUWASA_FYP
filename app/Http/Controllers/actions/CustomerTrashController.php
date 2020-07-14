@@ -12,7 +12,7 @@ class CustomerTrashController extends Controller
     {
         if(auth()->user()->permission == 'superuser'){
             $customers = Customer::where('deleted_at', '!=', null)->withTrashed()->get();
-            return view('actionToCustomers\customerTrash', compact('customers'));
+            return view('actionToCustomers.customerTrash', compact('customers'));
         }
         else{
             return redirect()->back();
