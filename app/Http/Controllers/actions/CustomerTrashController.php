@@ -21,7 +21,7 @@ class CustomerTrashController extends Controller
 
 
     public function restore($id){
-        $customer = Customer::where('id', $id)->withTrashed()->restore();
+        Customer::where('id', $id)->withTrashed()->restore();
         
         return redirect('/customer_trash')->with('info', 'customer restored successfully');
     }
