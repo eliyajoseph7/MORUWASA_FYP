@@ -92,6 +92,11 @@ Route::get('view/trends/{id}',[
 Route::get('/view/{id}', 'actions\ActionToCustomerController@view');
 Route::post('/updateCustomer/{id}', 'actions\UpdateCustomerController@update');
 Route::get('/delete/{id}', 'actions\UpdateCustomerController@delete');
+Route::get('/customer_trash', 'actions\CustomerTrashController@index');
+Route::get('/restoreCustomer/{id}', 'actions\CustomerTrashController@restore');
+Route::get('/permanentDeleteCustomer/{id}', 'actions\CustomerTrashController@permanentDelete');
+Route::get('/restore_all', 'actions\CustomerTrashController@restoreAll');
+Route::get('/delete_all', 'actions\CustomerTrashController@deleteAll');
 
 // editing user's profile
 Route::get('/profile/{id}', 'actions\UpdateStaffProfileController@edit');
