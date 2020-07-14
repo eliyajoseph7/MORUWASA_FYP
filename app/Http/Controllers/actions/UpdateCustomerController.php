@@ -58,6 +58,9 @@ class UpdateCustomerController extends Controller
     public function delete($id){
         Customer::where('id' , $id)
         ->delete();
+        $customer = Customer::where('id', $id)->withTrashed()->first();
+        $customer->user_id = auth()->user()->id;
+        $customer->save();
          return redirect('customers')->with('info','customer deleted successfully');
         //  return ($id);
       }
