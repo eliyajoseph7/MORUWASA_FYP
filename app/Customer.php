@@ -3,10 +3,12 @@
 namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Customer extends Model
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +16,7 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'street', 'gender', 'phone', 'category',
+        'name', 'street', 'gender', 'phone', 'category', 'user_id'
     ];
 
 
@@ -33,5 +35,10 @@ class Customer extends Model
     public function usage(){
 
         return $this->hasMany(Usage::class);
+    }
+
+    public function user(){
+
+        return $this->belongsTo(User::class);
     }
 }
