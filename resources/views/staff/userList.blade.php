@@ -44,6 +44,7 @@
                                     <tbody>
                                     <?php
                                         $count = 0;
+                                        $email = Auth::user()->email;
                                             
                                             ?>
                                                 @if(count($users) > 0 )
@@ -65,8 +66,13 @@
                                                             <td class="center">{{( $users -> permission )}}</td>
                                                             
                                                             <td class="project-actions">
+                                                            @if($email != $users->email)
                                                                 <a href='' data-toggle="modal" data-target="#{{($users->id)}}" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
                                                                 <a href='' data-toggle="modal" data-target="#{{($users->id)}}1" class="btn btn-white btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                            @else
+                                                                <a href='' class="btn btn-white btn-sm disabled"><i class="fa fa-pencil"></i> Edit </a>
+                                                                <a href=''  class="btn btn-white btn-sm disabled"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                            @endif
                                                             </td> 
                                                             <!-- Modal for update action -->
                                                             <div class="modal fade" id="{{($users->id)}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
