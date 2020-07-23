@@ -64,7 +64,7 @@
 }
 
 .dt:hover {
-    transform:scale(1.02)
+    transform:scale(1.0002)
 }
 .bt button{
     width: 150px;
