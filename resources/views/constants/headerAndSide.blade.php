@@ -691,7 +691,7 @@
 
         });
 
-    </script>
+</script>
 
 
 <script>
