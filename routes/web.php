@@ -92,7 +92,7 @@ Route::get('view/trends/{id}',[
 
 Route::get('/waterBillTrend',[
     'as' => 'billTrends',
-    'uses' => 'Chart\waterBillTrendChartController@getMonthlyConsumptionData'
+    'uses' => 'Chart\waterBillTrendChartController@getAllMonths'
 ]);
 
 Route::get('/view/{id}', 'actions\ActionToCustomerController@view');

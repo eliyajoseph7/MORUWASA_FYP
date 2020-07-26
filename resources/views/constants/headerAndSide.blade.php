@@ -183,7 +183,7 @@
     
         <!-- Top bar -->
         <div id="app" class="row border-bottom">
-        <nav class="navbar navbar-static-top navbar-expand-md navbar-light bg-white " style="margin-bottom: 1%">
+        <nav class="navbar navbar-static-top navbar-expand-md navbar-light bg-light ">
             
                 
         <div class="navbar-header mr-lg-auto">
