@@ -412,9 +412,6 @@
 
     <!-- ChartJS-->
     <script src="{{url('js/plugins/chartJs/Chart.min.js')}}"></script>
-    <script src="{{url('js/plugins/chartJs/create-charts-complaints.js')}}"></script>
-    <script src="{{url('js/plugins/chartJs/create-charts-complaints-locations.js')}}"></script>
-    <script src="{{url('js/plugins/chartJs/create-charts-waterBillTrend.js')}}"></script>
     <!-- <script src="{{url('js/plugins/chartJs/jquery.min.js')}}"></script> -->
 
 

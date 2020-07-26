@@ -213,5 +213,6 @@
     </div>        
 </div>
 
+<script src="{{url('js/plugins/chartJs/create-charts-waterBillTrend.js')}}"></script>
 
     @endsection

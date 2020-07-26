@@ -11,6 +11,7 @@
         },
 
         ajaxGetConsumptionMonthlyData: function() {
+            
             var request = $.ajax({
                 method: 'GET',
                 url: 'https://cors-anywhere.herokuapp.com/' +'http://tranquil-escarpment-98859.herokuapp.com/billComplaintsLocation'

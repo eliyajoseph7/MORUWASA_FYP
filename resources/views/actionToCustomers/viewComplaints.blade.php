@@ -213,4 +213,6 @@
 </div>
 
 
+    <script src="{{url('js/plugins/chartJs/create-charts-complaints.js')}}"></script>
+    <script src="{{url('js/plugins/chartJs/create-charts-complaints-locations.js')}}"></script>
 @endsection

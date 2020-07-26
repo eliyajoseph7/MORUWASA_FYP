@@ -222,7 +222,7 @@
                     </div>
 
                 </div>
+                @include('staff.userList')
             </div>
             
-            @include('staff.userList')
 @endsection
