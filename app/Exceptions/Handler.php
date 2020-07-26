@@ -48,8 +48,20 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
+    // public function render($request, Throwable $exception)
+    // {
+    //     return parent::render($request, $exception);
+    // }
     public function render($request, Throwable $exception)
     {
-        return parent::render($request, $exception);
+    
+        // Render well-known exceptions here
+    
+        // Otherwise display internal error message
+        if(app()->environment() === 'production') {
+            return view('errors.500');
+        } else {
+            return parent::render($request, $exception);
+        }
     }
 }
