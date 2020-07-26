@@ -21,7 +21,7 @@ class UpdateCustomerController extends Controller
             'meter_no' => 'required',
         ]);
 
-        $phone_check = Customer::where('id', '!=', $id)->where('phone', Input::get('phone'));
+        $phone_check = Customer::where('id', '!=', $id)->where('phone', $request->input('phone'));
         if($phone_check->exists()){
             return redirect ('view/'.$id)->with('err', 'The phone number entered belongs to another customer!');
 

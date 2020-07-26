@@ -28,8 +28,8 @@ class UpdateStaffProfileController extends Controller
         ]);
         $update = User::find($id);// getting all details of a user with id = $id
 
-        $phone_check = User::where('id', '!=', $id)->where('phone', Input::get('phone'));
-        $email_check = User::where('id', '!=', $id)->where('email', Input::get('email'));
+        $phone_check = User::where('id', '!=', $id)->where('phone', $request->input('phone'));
+        $email_check = User::where('id', '!=', $id)->where('email', $request->input('email'));
 
         if($phone_check->exists() || $email_check->exists()){
             return redirect ('profile/'.$id)->with('err', 'The phone number or email entered belongs to another user!');
@@ -37,7 +37,7 @@ class UpdateStaffProfileController extends Controller
         }elseif(!empty($request->input('current_password'))){
             $user = User::where('id', $id)->first(); //this returns the first match, but password doesn't returned
             // here the iput password is being hashed before compare it with the hased one in the users table
-            $validCredentials = Hash::check(Input::get('current_password'), $user->getAuthPassword()); // getAuthPassword helps to return the hashed password from users table
+            $validCredentials = Hash::check($request->input('current_password'), $user->getAuthPassword()); // getAuthPassword helps to return the hashed password from users table
 
             if(!$validCredentials){
                 return redirect ('profile/'.$id)->with('err', 'The current password entered does not match!');

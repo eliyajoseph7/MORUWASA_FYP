@@ -23,11 +23,11 @@ class EditMeterController extends Controller
             'meter_no' => ['required', 'min:8', 'max:8'],
         ]);
 
-        if(Meter::where('id', '!=', $id)->where('meter_no', Input::get('meter_no'))->exists()){
+        if(Meter::where('id', '!=', $id)->where('meter_no', $request->input('meter_no'))->exists()){
             return redirect('editMeter/'.$id)->with('err', 'The meter exists');
         }
         else{
-            if(Meter::where('meter_no', Input::get('meter_no'))->where('type', Input::get('type'))->exists()){
+            if(Meter::where('meter_no', $request->input('meter_no'))->where('type', $request->input('type'))->exists()){
                 return redirect('editMeter/'.$id)->with('nothing', 'No changes made');
             }
             else{
