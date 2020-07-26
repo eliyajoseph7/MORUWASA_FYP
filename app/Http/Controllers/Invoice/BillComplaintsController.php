@@ -18,7 +18,7 @@ class BillComplaintsController extends Controller
         
         $resp = json_decode($response->getBody());
 // return $resp;
-        return view('actionToCustomers\viewComplaints', compact('resp'));
+        return view('actionToCustomers.viewComplaints', compact('resp'));
     }
 
 }
