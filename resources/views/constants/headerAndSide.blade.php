@@ -13,6 +13,9 @@
     <link rel="icon" type="image/png" href="{{url('assets/img/favicon.png')}}" />
 
     <title> MORUWASA BILLING SYSTEM </title>
+     <script src="{{ url('js/jquery-3.1.1.min.js') }}"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatable/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/datatable/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
@@ -42,7 +45,7 @@
     <link href="{{ url('css/style.css')}} " rel="stylesheet">
     <link href="{{ url('css/htmlModal.css')}} " rel="stylesheet">
 
-    {!! Charts::assets() !!}
+    
 
 <style>
 .s-skin-1:hover{
@@ -127,7 +130,11 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ url('/waterBill') }}"><i class="fas fa-money-bill"></i> <span class="nav-label">View Bills</span>  </a>
+                        <a href="#"><i class="fa fa-dollar"></i> <span class="nav-label">Bill Management</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="{{ url('/waterBill') }}"><i style="color:green" class="fas fa-money-bill"></i>Bills Summary</a></li>
+                            <li><a href="{{ url('/complaints') }}"><i style="color:yellow" class="fa fa-circle-o"></i>Complaints</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{ url('/invoices') }}"><i class="fas fa-file-invoice-dollar"></i> <span class="nav-label">Invoices</span></a>
@@ -405,6 +412,8 @@
 
     <!-- ChartJS-->
     <script src="{{url('js/plugins/chartJs/Chart.min.js')}}"></script>
+    <script src="{{url('js/plugins/chartJs/create-charts-complaints.js')}}"></script>
+    <script src="{{url('js/plugins/chartJs/create-charts-complaints-locations.js')}}"></script>
     <!-- <script src="{{url('js/plugins/chartJs/jquery.min.js')}}"></script> -->
 
 
@@ -648,7 +657,7 @@
             $('.dataTables-example').DataTable({
                 pageLength: 25,
                 responsive: true,
-                dom: '<"html5buttons"B>lTfgitp',
+                dom: '<"html5buttons"B>lTfgtip',
                 buttons: [
                     { extend: 'copy'},
                     {extend: 'csv'},
