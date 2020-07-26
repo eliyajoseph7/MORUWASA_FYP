@@ -33,28 +33,27 @@ class WaterBillTrendChartController extends Controller
     }
 
     public function getMonthlyConsumptionData(){
-        // $monthly_consumption_count_array = array();
-        //  $month_array = $this->getAllMonths();
-        //  $month_name_array = array();
+        $monthly_consumption_count_array = array();
+         $month_array = $this->getAllMonths();
+         $month_name_array = array();
 
-        //  if(! empty($month_array)){
-        //      foreach($month_array as $month_no => $month_name){
-        //          $monthly_consumptions_count = $this->getMonthlyConsumptionCount($month_no);
-        //          array_push($monthly_consumption_count_array, $monthly_consumptions_count);
-        //          array_push($month_name_array, $month_name);
-        //      }
+         if(! empty($month_array)){
+             foreach($month_array as $month_no => $month_name){
+                 $monthly_consumptions_count = $this->getMonthlyConsumptionCount($month_no);
+                 array_push($monthly_consumption_count_array, $monthly_consumptions_count);
+                 array_push($month_name_array, $month_name);
+             }
               
-        //  }
-        //  $max_no = max($monthly_consumption_count_array);
-        //  $max = round(( $max_no + 10/2 ) / 10 ) * 10;
+         }
+         $max_no = max($monthly_consumption_count_array);
+         $max = round(( $max_no + 10/2 ) / 10 ) * 10;
 
-        //  $monthly_consumption_data_array = array(
-        //     'months' => $month_name_array,
-        //     'consumption_count_data' => $monthly_consumption_count_array,
-        //     'max' => $max
-        //  );
-    // return $monthly_consumption_data_array;
-    return "yezaa";
+         $monthly_consumption_data_array = array(
+            'months' => $month_name_array,
+            'consumption_count_data' => $monthly_consumption_count_array,
+            'max' => $max
+         );
+    return $monthly_consumption_data_array;
 
     }
 
