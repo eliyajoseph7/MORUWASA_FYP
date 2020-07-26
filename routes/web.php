@@ -50,6 +50,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::any('/waterBill', 'WaterBillController@index')->name('waterBill');
+Route::get('/complaints', 'Invoice\BillComplaintsController@index');
 Route::get('/customers', 'CustomerController@index')->name('customers');
 Route::get('/meter', 'MeterController@meters')->name('meter');
 Route::post('/addCustomer', 'CustomerController@add');
