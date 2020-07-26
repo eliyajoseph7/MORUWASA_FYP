@@ -95,7 +95,7 @@ Route::get('view/trends/{id}',[
 //     'uses' => 'Chart\waterBillTrendChartController@getMonthlyConsumptionData'
 // ]);
 
-Route::get('/waterBillTrend', 'Chart\waterBillTrendChartController@getMonthlyConsumptionData');
+Route::get('/water_trend', 'Chart\waterBillTrendChartController@getMonthlyConsumptionData');
 Route::get('/view/{id}', 'actions\ActionToCustomerController@view');
 Route::post('/updateCustomer/{id}', 'actions\UpdateCustomerController@update');
 Route::get('/delete/{id}', 'actions\UpdateCustomerController@delete');
