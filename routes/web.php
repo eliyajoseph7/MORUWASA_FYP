@@ -90,12 +90,11 @@ Route::get('view/trends/{id}',[
     'uses' => 'Chart\TrendsChartController@getAllDaysData'
 ]);
 
-// Route::get('/waterBillTrend',[
-//     'as' => 'billTrends',
-//     'uses' => 'Chart\waterBillTrendChartController@getMonthlyConsumptionData'
-// ]);
+Route::get('/waterBillTrend',[
+    'as' => 'billTrends',
+    'uses' => 'Chart\WaterBillTrendChartController@getMonthlyConsumptionData'
+]);
 
-Route::get('/water_trend', 'Chart\WaterBillTrendChartController@getMonthlyConsumptionData');
 Route::get('/view/{id}', 'actions\ActionToCustomerController@view');
 Route::post('/updateCustomer/{id}', 'actions\UpdateCustomerController@update');
 Route::get('/delete/{id}', 'actions\UpdateCustomerController@delete');
