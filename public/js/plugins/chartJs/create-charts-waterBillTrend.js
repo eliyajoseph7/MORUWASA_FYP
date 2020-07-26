@@ -13,7 +13,7 @@
         ajaxGetConsumptionMonthlyData: function() {
             var request = $.ajax({
                 method: 'GET',
-                url: 'data'
+                url: 'waterBillTrend'
             });
 
             request.done(function(response) {
