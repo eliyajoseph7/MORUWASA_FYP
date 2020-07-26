@@ -22,7 +22,10 @@ class WaterBillController extends Controller
     }
     
     public function index(Request $request){
-        $bill = new WaterBill;
+        $bill = WaterBill::select(DB::raw("SUM(cast(units as double precision)) * 1000 as litres"), DB::raw("SUM(cast(amount as double precision)) as amount"),'created_at')
+                            ->groupBy('created_at')
+                            ->get();
+        // return $bill;
         // $usages = Usage::select('id', 'customer_id', 'consumption')
         //                 ->groupBy('customer_id')
         //                 ->sum('consumption');
@@ -36,6 +39,8 @@ class WaterBillController extends Controller
         /* for postgres, the cast(something as data type) must be added otherwise 
         * SQLSTATE[42883]: Undefined function: 7 ERROR: function sum(character varying) does not exist LINE 1: 
         *ty   will be thrown*/
+
+
         $check = $request->input('filter');
         if($check == "allTime"){
             $usages = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
@@ -44,7 +49,7 @@ class WaterBillController extends Controller
                         ->get();
    
            
-            return view('waterBill', ['usages' => $usages]);
+            return view('waterBill', compact('usages', 'bill'));
         }else{
             $usages = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
                         ->select('customer_id', DB::raw("SUM(cast(consumptions.consumption as double precision)) as units"))
@@ -54,7 +59,7 @@ class WaterBillController extends Controller
    
            
 
-            return view('waterBill', ['usages' => $usages]);
+            return view('waterBill', compact('usages', 'bill'));
         }
         
     }
