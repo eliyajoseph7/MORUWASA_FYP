@@ -19,6 +19,84 @@
         </div>
     </div>
 
+    <div class="row mt-3">
+
+        <!-- Area Chart -->
+        <div class="col-xl-6 col-lg-7">
+            <div class="card card-primary card-outline mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h4 class="m-0 font-weight-bold text-primary">Bill Trend Overview</h4>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <canvas id="billAmountChart"  style="height: 300px; padding: 0px; position: relative;"></canvas>                  
+            </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-lg-5">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Bill Trend Summary</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#" class="dropdown-item">Config option 1</a>
+                            </li>
+                            <li><a href="#" class="dropdown-item">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>S/No.</th>
+                            <th>Month</th>
+                            <th>Amount (Tsh)</th>
+                            <th>Consumption (litres)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $count = 0;
+                                    
+                            ?>
+                            @if(count($bill) > 0 )
+                                @foreach($bill -> all() as $bill) 
+                                
+                                    <?php 
+                                        $count += 1;
+                                    ?>
+                                
+                                    <tr class="gradeA odd" role="row">
+                                        
+                                        <td class="sorting_1">{{( $count )}}</td>
+                                            <td>{{( $bill -> created_at -> format('M') )}}</td>
+                                            <td>{{( $bill -> amount )}}</td>
+                                            <td>{{( $bill -> litres )}}</td>
+                                    </tr>    
+                                    
+                                @endforeach
+                            @endif    
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
      <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
