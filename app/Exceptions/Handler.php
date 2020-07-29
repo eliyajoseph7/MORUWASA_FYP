@@ -61,7 +61,7 @@ class Handler extends ExceptionHandler
         if(app()->environment() === 'production') {
             if($e instanceof ValidationException) {
 
-                return redirect()->back()->withErrors($e->validator->getMessageBag()->toArray());
+                return parent::render($request, $exception);
             }
             else{
                 return view('errors.500');
