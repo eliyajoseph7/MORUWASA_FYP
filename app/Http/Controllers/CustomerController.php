@@ -41,7 +41,7 @@ class CustomerController extends Controller
         ]);
 
         $addCustomer = new Customer;
-        if ($addCustomer::where('phone', '=', Input::get('phone'))->exists()) {
+        if ($addCustomer::where('phone', '=', $request->input('phone'))->exists()) {
             return redirect('/customers')->with('err','The customer exists');
         
 

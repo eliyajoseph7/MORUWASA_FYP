@@ -29,7 +29,7 @@ class MeterController extends Controller
         ]);
 
         $addMeter = new Meter;
-        if ($addMeter::where('meter_no', '=', Input::get('meter_no'))->exists()) {
+        if ($addMeter::where('meter_no', '=', $request->input('meter_no'))->exists()) {
             return redirect('/meter')->with('err','The Meter exists');
         
 
