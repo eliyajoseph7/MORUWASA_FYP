@@ -48,26 +48,26 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    // public function render($request, Throwable $exception)
-    // {
-    //     return parent::render($request, $exception);
-    // }
     public function render($request, Throwable $exception)
     {
-    
-        // Render well-known exceptions here
-    
-        // Otherwise display internal error message
-        if(app()->environment() === 'production') {
-            if($exception instanceof ValidationException) {
-
-                return redirect()->back()->withErrors($exception->validator->getMessageBag()->toArray());
-            }
-            else{
-                return view('errors.500');
-            }
-        } else {
-            return parent::render($request, $exception);
-        }
+        return parent::render($request, $exception);
     }
+    // public function render($request, Throwable $exception)
+    // {
+    
+    //     // Render well-known exceptions here
+    
+    //     // Otherwise display internal error message
+    //     if(app()->environment() === 'production') {
+    //         if($exception instanceof ValidationException) {
+
+    //             return redirect()->back()->withErrors($exception->validator->getMessageBag()->toArray());
+    //         }
+    //         else{
+    //             return view('errors.500');
+    //         }
+    //     } else {
+    //         return parent::render($request, $exception);
+    //     }
+    // }
 }
