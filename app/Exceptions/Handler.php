@@ -59,7 +59,13 @@ class Handler extends ExceptionHandler
     
         // Otherwise display internal error message
         if(app()->environment() === 'production') {
-            return view('errors.500');
+            if($e instanceof ValidationException) {
+
+                return redirect()->back()->withErrors($e->validator->getMessageBag()->toArray());
+            }
+            else{
+                return view('errors.500');
+            }
         } else {
             return parent::render($request, $exception);
         }
