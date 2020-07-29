@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\actions;
 
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\actions;
 
 use App\Customer;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CustomerTrashController extends Controller

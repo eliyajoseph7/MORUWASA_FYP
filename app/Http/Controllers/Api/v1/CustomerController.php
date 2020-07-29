@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Api\v1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
 use App\Http\Resources\CustomerResource;
-use App\Http\Resources\ResourcesCollections\ConsumptionResourceCollection;
 use App\Customer;
-use App\Meter;
 
 class CustomerController extends Controller
 {
@@ -23,7 +20,7 @@ class CustomerController extends Controller
     {
         $request -> validate([
             'name'=> 'required',
-            'meter_no'=> 'required'
+            'meter_no'=> ['required', 'digits_between:8,8']
         ]);
 
         $name = $request->input('name');

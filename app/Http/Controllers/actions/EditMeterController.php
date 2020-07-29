@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\actions;
 
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Meter;
@@ -20,7 +19,7 @@ class EditMeterController extends Controller
 
     public function updateMeter(Request $request, $id){
         $validatedData = $request->validate([
-            'meter_no' => ['required', 'min:8', 'max:8'],
+            'meter_no' => ['required', 'min:8', 'max:8', 'digits_between:8,8'],
         ]);
 
         if(Meter::where('id', '!=', $id)->where('meter_no', $request->input('meter_no'))->exists()){

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\actions;
-use Illuminate\Support\Facades\Input;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +17,7 @@ class UpdateCustomerController extends Controller
             'phone' => 'bail|required|regex:/^(\+255)[0-9]{9}$/',
             'street' => 'required',
             'category' => 'required',
-            'meter_no' => 'required',
+            'meter_no' => ['required', 'digits_between:8,8'],
         ]);
 
         $phone_check = Customer::where('id', '!=', $id)->where('phone', $request->input('phone'));

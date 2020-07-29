@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api\v1;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Consumption;
@@ -16,13 +15,13 @@ class ConsumptionController extends Controller
     public function store(Request $request): ConsumptionResource
     {
         $request -> validate([  //validating the inputs received from real time meter
-            'consumption' => 'required',
-            'meter_no' => 'required'
+            'consumption' => ['required', 'digits_between:0,1000'],
+            'meter_no' => ['required', 'digits_between:8,8']
         ]);
         $meter = new Meter;
-        if ($meter::where('meter_no', '=', Input::get('meter_no'))->exists()) // checking if the meter number match with any available in the maters table
+        if ($meter::where('meter_no', '=', $request->input('meter_no'))->exists()) // checking if the meter number match with any available in the maters table
         {
-            $customer = $meter::where('meter_no', Input::get('meter_no'))->pluck('customer_id');// taking a customer id of the matched meter
+            $customer = $meter::where('meter_no', $request->input('meter_no'))->pluck('customer_id');// taking a customer id of the matched meter
             foreach($customer as $customer){
                 $customer = $customer;
                 
