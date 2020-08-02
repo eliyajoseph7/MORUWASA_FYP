@@ -10,7 +10,11 @@ use App\User;
 
 class UpdateStaffProfileController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function edit($id){
         $staff = User::find($id);
         return view('staff/editProfile', compact('staff'));

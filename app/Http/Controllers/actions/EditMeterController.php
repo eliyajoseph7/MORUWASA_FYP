@@ -8,7 +8,10 @@ use App\Meter;
 
 class EditMeterController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function meter($id){
 

@@ -10,7 +10,11 @@ use App\Meter;
 
 class ActionToCustomerController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function view(Request $request, $id){
         $data = [
             'name' => $request -> input('name'),
