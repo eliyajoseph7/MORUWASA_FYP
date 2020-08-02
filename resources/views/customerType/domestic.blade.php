@@ -1,7 +1,7 @@
 
     <div class="row invoice">
          @foreach($invoice -> all() as  $invoices)
-            @if($invoices->customer->category == 'domestic')
+            @if($invoices->category == 'domestic')
             <?php 
             
                 $ewura = $invoices->amount / 100;
@@ -28,9 +28,9 @@
                                 <span>To:</span>
                                 <address>
                                     <strong>{{( $invoices -> name)}}</strong><br>
-                                    {{( $invoices -> customer -> street)}}<br>
+                                    {{( $invoices -> street)}}<br>
                                     Meter.No, {{( $invoices -> meter -> meter_no)}}<br>
-                                    <abbr title="Phone">P:</abbr> {{( $invoices -> customer -> phone)}}
+                                    <abbr title="Phone">P:</abbr> {{( $invoices -> phone)}}
                                 </address>
                                 <p>
                                     <span><strong>Invoice Date:</strong> <?php echo date('d,M-Y') ?></span><br>

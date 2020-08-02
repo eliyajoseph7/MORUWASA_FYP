@@ -112,7 +112,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Priority</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Complaint Description</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Status</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Action</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 131px;">Action</th> -->
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -137,10 +137,10 @@
                                                             <td class="center">{{( $resp -> complaint_priority )}}</td>
                                                             <td class="center text-wrap w-100">{{( $resp -> description )}}</td>
                                                             <td>{{( $resp -> status )}}</td>
-                                                            <td class="project-actions">
+                                                            <!-- <td class="project-actions">
                                                                 <a href='' data-toggle="modal" data-target="#{{($resp->id)}}" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Restore </a>
                                                                 <a href='' data-toggle="modal" data-target="#{{($resp->id)}}1" class="btn btn-white btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
-                                                            </td>
+                                                            </td> -->
 
                                                             <!-- Modal for update action -->
                                                             <div class="modal fade" id="{{($resp->id)}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -200,7 +200,7 @@
                                             <th rowspan="1" colspan="1">Priority</th>
                                             <th rowspan="1" colspan="1">Complaint Description</th>
                                             <th rowspan="1" colspan="1">Status</th>
-                                            <th rowspan="1" colspan="1">Action</th>
+                                            <!-- <th rowspan="1" colspan="1">Action</th> -->
                                         </tr>
                                     </tfoot>
                                 </table>
