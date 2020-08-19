@@ -145,8 +145,11 @@
                                                                 <td>-</td>
                                                             @endif
                                                             <td class="center">{{( $meter -> type )}}</td>
+                                                            @if(auth()->user()->permission == 'superuser')
                                                             <td class="center"><a href='{{url("/editMeter/{$meter->id}")}}' class="label btn-outline-primary">Edit</a></td>
-                                                            
+                                                            @else
+                                                            <td class="center"><a  class="label btn-outline-secondary" style="cursor: no-drop;">Edit</a></td>
+                                                            @endif
                                                         </tr>
                                                     @endforeach
                                                 @endif    
