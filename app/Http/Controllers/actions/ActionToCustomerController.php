@@ -4,9 +4,9 @@ namespace App\Http\Controllers\actions;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Customer;
-use App\Usage;
-use App\Meter;
+use App\Models\Customer;
+use App\Models\Usage;
+use App\Models\Meter;
 
 class ActionToCustomerController extends Controller
 {
@@ -28,7 +28,7 @@ class ActionToCustomerController extends Controller
         $daily_consumption = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
                                     ->where('usages.customer_id', $id)
                                     // ->whereMonth('consumptions.created_at', date('m'))
-                                    ->select('consumptions.created_at',DB::raw('SUM(cast(consumptions.consumption as double precision))'))
+                                    ->select('consumptions.created_at',DB::raw('cast(SUM(consumptions.consumption) as double) as sum'))
                                     ->groupBy('consumptions.created_at')
                                     ->get();
         // return $daily_consumption;  

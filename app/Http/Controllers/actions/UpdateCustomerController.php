@@ -4,8 +4,8 @@ namespace App\Http\Controllers\actions;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Customer;
-use App\Meter;
+use App\Models\Customer;
+use App\Models\Meter;
 
 class UpdateCustomerController extends Controller
 {

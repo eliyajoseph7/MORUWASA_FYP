@@ -2,14 +2,14 @@
 
 namespace App\Observers;
 
-use App\Customer;
+use App\Models\Customer;
 
 class CustomerObserver
 {
     /**
      * Handle the Customer "created" event.
      *
-     * @param  \App\Customer  $customer
+     * @param  \App\Models\Customer  $customer
      * @return void
      */
     public function creating(Customer $customer)
@@ -25,7 +25,7 @@ class CustomerObserver
     /**
      * Handle the Customer "updated" event.
      *
-     * @param  \App\Customer  $customer
+     * @param  \App\Models\Customer  $customer
      * @return void
      */
     public function updated(Customer $customer)
@@ -36,7 +36,7 @@ class CustomerObserver
     /**
      * Handle the Customer "deleted" event.
      *
-     * @param  \App\Customer  $customer
+     * @param  \App\Models\Customer  $customer
      * @return void
      */
     public function deleted(Customer $customer)

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Chart;
 
 use App\Http\Controllers\Controller;
-use App\WaterBill;
+use App\Models\WaterBill;
 use DateTime;
 use Illuminate\Http\Request;
 

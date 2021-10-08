@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 use Charts;
-use App\Customer;
-use App\Payment;
-use App\WaterBill;
-use App\Meter;
-use App\Consumption;
+use App\Models\Customer;
+use App\Models\Payment;
+use App\Models\WaterBill;
+use App\Models\Meter;
+use App\Models\Consumption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -44,7 +44,7 @@ class HomeController extends Controller
 
          $high_consumption_street = Consumption::join('usages', 'consumptions.id', '=', 'usages.id')
                                                 ->join('customers', 'usages.customer_id', '=', 'customers.id')
-                                                ->select('customers.street', DB::raw("SUM(cast(consumptions.consumption as double precision)) as units"))
+                                                ->select('customers.street', DB::raw("SUM(cast(consumptions.consumption as double)) as units"))
                                                 ->groupBy('customers.street')
                                                 ->orderBy('units', 'DESC')
                                                 ->first();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,7 +23,7 @@ class Customer extends Model
 
     public function payments(){
 
-        // return $this->hasOne('App\Payment');
+        // return $this->hasOne('App\Models\Payment');
         return $this->hasMany(Payment::class);
     }
 

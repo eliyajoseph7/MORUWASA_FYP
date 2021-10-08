@@ -6,7 +6,7 @@ namespace App\Http\Controllers\actions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 class RegisterUserController extends Controller
 {
     

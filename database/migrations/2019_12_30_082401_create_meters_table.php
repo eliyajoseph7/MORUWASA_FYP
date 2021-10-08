@@ -15,7 +15,7 @@ class CreateMetersTable extends Migration
     {
         Schema::create('meters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('customer_id')->unsigned()->nullable(); /** this allow null values inorder to allow the 
+            $table->bigInteger('customer_id')->unsigned()->nullable(); /** this allow null values inorder to allow the 
                                                                      *registration of meters even before it is assigned to a 
                                                                      *specific customer */
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('set null');$table->string('meter_no');

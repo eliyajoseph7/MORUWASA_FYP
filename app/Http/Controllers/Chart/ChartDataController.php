@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Chart;
-use App\Consumption;
+use App\Models\Consumption;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DateTime;

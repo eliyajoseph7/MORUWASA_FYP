@@ -1,8 +1,10 @@
 <?php
 
+// namespace Database\Factories;
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Payment;
+use App\Models\Payment;
 use Faker\Generator as Faker;
 
 

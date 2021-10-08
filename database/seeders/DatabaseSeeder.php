@@ -1,5 +1,7 @@
 <?php
 
+// namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,23 +14,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        factory(App\Customer::class, 500)->create()->each(function($customers){
+        factory(App\Models\Customer::class, 500)->create()->each(function($customers){
             $customers->save();
             });
 
-        factory(App\Meter::class, 500)->create()->each(function($meters){
+        factory(App\Models\Meter::class, 500)->create()->each(function($meters){
             $meters->save();
             });
 
-        factory(App\Payment::class, 500)->create()->each(function($payments){
+        factory(App\Models\Payment::class, 500)->create()->each(function($payments){
             $payments->save();
             });
 
-        factory(App\Usage::class, 2000)->create()->each(function($usage){
+        factory(App\Models\Usage::class, 2000)->create()->each(function($usage){
             $usage->save();
             });
 
-        factory(App\Consumption::class, 2000)->create()->each(function($consumption){
+        factory(App\Models\Consumption::class, 2000)->create()->each(function($consumption){
             $consumption->save();
             });
     }

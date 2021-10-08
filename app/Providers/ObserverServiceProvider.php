@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use App\Customer;
+use App\Models\Customer;
 use App\Observers\CustomerObserver;
 use Illuminate\Support\ServiceProvider;
 

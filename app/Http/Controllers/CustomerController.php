@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-use App\Customer;
-use App\Meter;
+use App\Models\Customer;
+use App\Models\Meter;
 use Illuminate\Http\Request;
 
 

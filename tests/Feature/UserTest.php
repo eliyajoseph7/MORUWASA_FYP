@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\User;
-use App\Customer;
-use App\Meter;
+use App\Models\User;
+use App\Models\Customer;
+use App\Models\Meter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase

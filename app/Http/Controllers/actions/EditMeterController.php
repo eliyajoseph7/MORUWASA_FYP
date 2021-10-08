@@ -4,7 +4,7 @@ namespace App\Http\Controllers\actions;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Meter;
+use App\Models\Meter;
 
 class EditMeterController extends Controller
 {

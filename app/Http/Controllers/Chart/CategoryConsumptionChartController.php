@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Chart;
 use Illuminate\Support\Facades\DB;
 
-use App\Customer;
-use App\Usage;
-use App\Consumption;
+use App\Models\Customer;
+use App\Models\Usage;
+use App\Models\Consumption;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

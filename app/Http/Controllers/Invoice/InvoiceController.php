@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Invoice;
-use App\WaterBill;
+use App\Models\WaterBill;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

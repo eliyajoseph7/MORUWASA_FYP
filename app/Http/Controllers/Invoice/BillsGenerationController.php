@@ -6,8 +6,8 @@ use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\WaterBill;
-use App\ControlNumber;
+use App\Models\WaterBill;
+use App\Models\ControlNumber;
 class BillsGenerationController extends Controller
 {
     //
@@ -17,13 +17,13 @@ class BillsGenerationController extends Controller
                         ->join('usages', 'customers.id', '=', 'usages.customer_id')
                         ->join('consumptions', 'usages.id', '=', 'consumptions.id')
                         ->whereMonth('consumptions.created_at', date('m'))
-                        ->select('customers.id', 'customers.name', DB::raw('cast(customers.category as varchar)'), 
-                                DB::raw('SUM(cast(consumptions.consumption as double precision)) as units'))
+                        ->select('customers.id', 'customers.name', DB::raw('customers.category'), 
+                                DB::raw('SUM(cast(consumptions.consumption as double)) as units'))
                         ->groupBy('customers.id', 'customers.category')
                         ->get();
     
             $check = new WaterBill;
-    
+
             if($check::whereMonth('created_at', date('m'))->exists()){
                 // Do nothing
             }else{

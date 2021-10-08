@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-use App\User;
+use App\Models\User;
 class SetupController extends Controller
 {
     /**

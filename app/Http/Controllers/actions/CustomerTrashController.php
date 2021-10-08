@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\actions;
 
-use App\Customer;
+use App\Models\Customer;
 use App\Http\Controllers\Controller;
 
 class CustomerTrashController extends Controller

@@ -1,8 +1,10 @@
 <?php
 
+// namespace Database\Factories;
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Consumption;
+use App\Models\Consumption;
 use Carbon\Carbon;
 use Faker\Generator as Faker;
 

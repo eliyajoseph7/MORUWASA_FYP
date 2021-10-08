@@ -1,8 +1,10 @@
 <?php
 
+// namespace Database\Factories;
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Usage;
+use App\Models\Usage;
 use Faker\Generator as Faker;
 
 $factory->define(Usage::class, function (Faker $faker) {

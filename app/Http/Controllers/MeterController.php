@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-use App\Meter;
+use App\Models\Meter;
 class MeterController extends Controller
 {
     /**

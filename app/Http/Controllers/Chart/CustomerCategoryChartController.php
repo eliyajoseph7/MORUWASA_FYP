@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Chart;
-use App\Customer;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

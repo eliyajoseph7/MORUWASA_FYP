@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\ControlNumber;
+use App\Models\ControlNumber;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-use App\WaterBill;
-use App\Consumption;
-use App\Usage;
+use App\Models\WaterBill;
+use App\Models\Consumption;
+use App\Models\Usage;
 
 class WaterBillController extends Controller
 {
@@ -22,7 +22,7 @@ class WaterBillController extends Controller
     }
     
     public function index(Request $request){
-        $bill = WaterBill::select(DB::raw("SUM(cast(units as double precision)) * 1000 as litres"), DB::raw("SUM(cast(amount as double precision)) as amount"),'created_at')
+        $bill = WaterBill::select(DB::raw("SUM(cast(units as double)) * 1000 as litres"), DB::raw("SUM(cast(amount as double)) as amount"),'created_at')
                             ->groupBy('created_at')
                             ->get();
         // return $bill;
@@ -44,7 +44,7 @@ class WaterBillController extends Controller
         $check = $request->input('filter');
         if($check == "allTime"){
             $usages = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
-                        ->select('customer_id', DB::raw("SUM(cast(consumptions.consumption as double precision)) as units"))
+                        ->select('customer_id', DB::raw("SUM(cast(consumptions.consumption as double)) as units"))
                         ->groupBy('customer_id')
                         ->get();
    
@@ -52,7 +52,7 @@ class WaterBillController extends Controller
             return view('waterBill', compact('usages', 'bill'));
         }else{
             $usages = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
-                        ->select('customer_id', DB::raw("SUM(cast(consumptions.consumption as double precision)) as units"))
+                        ->select('customer_id', DB::raw("SUM(cast(consumptions.consumption as double)) as units"))
                         ->whereMonth('consumptions.created_at', date('m'))
                         ->groupBy('customer_id')
                         ->get();

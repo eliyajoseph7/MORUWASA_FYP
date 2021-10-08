@@ -13,6 +13,8 @@
         ajaxGetConsumptionMonthlyData: function() {
             var request = $.ajax({
                 method: 'GET',
+                headers: { 'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': 'true'},
                 url: 'https://cors-anywhere.herokuapp.com/' +'http://tranquil-escarpment-98859.herokuapp.com/billComplaintsTrend'
             });
 

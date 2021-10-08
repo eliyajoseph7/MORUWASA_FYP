@@ -5,7 +5,7 @@ use DateTime;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Consumption;
+use App\Models\Consumption;
 class InteractiveConsumptionChartController extends Controller
 {
     //

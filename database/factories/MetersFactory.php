@@ -1,8 +1,10 @@
 <?php
 
+// namespace Database\Factories;
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Meter;
+use App\Models\Meter;
 use Faker\Generator as Faker;
 
 $factory->define(Meter::class, function (Faker $faker) {
@@ -22,7 +24,7 @@ $factory->define(Meter::class, function (Faker $faker) {
         
         // 'customer_id' => 
         // function () {
-        //     return factory(App\Customer::class)->create()->id;
+        //     return factory(App\Models\Customer::class)->create()->id;
         // }
 
 

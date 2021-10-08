@@ -360,7 +360,7 @@
   updateChart();
   setInterval(() => {
     updateChart();
-  }, 1000);
+  }, 10000);
 </script>
 
 <script>

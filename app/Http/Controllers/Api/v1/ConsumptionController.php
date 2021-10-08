@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api\v1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Consumption;
+use App\Models\Consumption;
 use App\Http\Resources\ConsumptionResource;
 use App\Http\Resources\ResourcesCollections\ConsumptionResourceCollection;
-use App\Meter;
-use App\Usage;
+use App\Models\Meter;
+use App\Models\Usage;
 
 class ConsumptionController extends Controller
 {

@@ -1,7 +1,7 @@
 <?php
 
-use App\Customer;
-use App\Meter;
+use App\Models\Customer;
+use App\Models\Meter;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

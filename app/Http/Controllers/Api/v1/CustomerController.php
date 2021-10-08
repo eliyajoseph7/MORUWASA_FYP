@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CustomerResource;
-use App\Customer;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
