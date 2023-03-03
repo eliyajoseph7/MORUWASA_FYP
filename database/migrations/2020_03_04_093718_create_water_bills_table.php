@@ -16,8 +16,8 @@ class CreateWaterBillsTable extends Migration
         Schema::create('water_bills', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('units');
-            $table->string('amount');
+            $table->double('units');
+            $table->double('amount');
             $table->timestamps();
             $table->bigInteger('customer_id')->unsigned()->nullable();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('set null');                                                        

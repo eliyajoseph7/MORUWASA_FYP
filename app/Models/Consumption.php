@@ -19,6 +19,10 @@ class Consumption extends Model
         'consumption',
     ];
 
+    protected $casts = [
+        'consumption' => 'decimal:2',
+    ];
+
     public function usage(){
         return $this->belongsTo(Usage::class);
     }

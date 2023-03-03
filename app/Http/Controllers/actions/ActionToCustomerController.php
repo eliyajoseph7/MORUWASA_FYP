@@ -28,7 +28,7 @@ class ActionToCustomerController extends Controller
         $daily_consumption = Usage::join('consumptions', 'usages.id', '=', 'consumptions.id')
                                     ->where('usages.customer_id', $id)
                                     // ->whereMonth('consumptions.created_at', date('m'))
-                                    ->select('consumptions.created_at',DB::raw('cast(SUM(consumptions.consumption) as double) as sum'))
+                                    ->select('consumptions.created_at',DB::raw('cast(SUM(consumptions.consumption) as sum'))
                                     ->groupBy('consumptions.created_at')
                                     ->get();
         // return $daily_consumption;  

@@ -18,7 +18,7 @@ class BillsGenerationController extends Controller
                         ->join('consumptions', 'usages.id', '=', 'consumptions.id')
                         ->whereMonth('consumptions.created_at', date('m'))
                         ->select('customers.id', 'customers.name', DB::raw('customers.category'), 
-                                DB::raw('SUM(cast(consumptions.consumption as double)) as units'))
+                                DB::raw('SUM(consumptions.consumption) as units'))
                         ->groupBy('customers.id', 'customers.category')
                         ->get();
     

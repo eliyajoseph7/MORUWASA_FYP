@@ -15,7 +15,7 @@ class CreateConsumptionsTable extends Migration
     {
         Schema::create('consumptions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('consumption');
+            $table->double('consumption');
             $table->timestamps();
         });
     }

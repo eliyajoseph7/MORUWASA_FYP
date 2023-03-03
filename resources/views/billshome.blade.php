@@ -72,11 +72,11 @@
                           </div>
                           <div class="ibox-content">
                           <?php 
-                            $consumed_value = $high_consumption_street->units  * 1000
+                            $consumed_value = $high_consumption_street->units ?? 0  * 1000
                           ?>
                               <h1 class="no-margins"><span class="font-weight-bold" style="color:gold;">{{( $consumed_value )}}</span>Litres</h1>
                               <!-- <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div> -->
-                              <small>In {{($high_consumption_street->street)}}</small>
+                              <small>In {{($high_consumption_street->street ?? '')}}</small>
                           </div>
                       </div>
                   </div>

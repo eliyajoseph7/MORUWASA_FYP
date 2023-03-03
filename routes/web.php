@@ -2,6 +2,8 @@
 
 use App\Models\Customer;
 use App\Models\Meter;
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,10 @@ use App\Models\Meter;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::any('migrate', function() {
+    Artisan::call('migrate:refresh');
+    Artisan::call('db:seed');
+});
 Route::get('/', function () {
     return view('auth/login');
 });

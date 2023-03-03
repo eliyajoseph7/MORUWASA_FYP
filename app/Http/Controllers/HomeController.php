@@ -44,7 +44,7 @@ class HomeController extends Controller
 
          $high_consumption_street = Consumption::join('usages', 'consumptions.id', '=', 'usages.id')
                                                 ->join('customers', 'usages.customer_id', '=', 'customers.id')
-                                                ->select('customers.street', DB::raw("SUM(cast(consumptions.consumption as double)) as units"))
+                                                ->select('customers.street', DB::raw("SUM(consumptions.consumption) as units"))
                                                 ->groupBy('customers.street')
                                                 ->orderBy('units', 'DESC')
                                                 ->first();
